@@ -1,0 +1,147 @@
+{
+  "cmd": "DANMU_MSG",
+  "dm_v2": "",
+  "info": [
+    [
+      0,
+      1,
+      25,
+      16777215,
+      1794733626623,
+      -1489074210,
+      0,
+      "bf18683a",
+      0,
+      0,
+      0,
+      "",
+      0,
+      "{}",
+      "{}",
+      {
+        "extra": "{\"send_from_me\":false,\"master_player_hidden\":false,\"mode\":0,\"color\":16777215,\"dm_type\":0,\"font_size\":25,\"player_mode\":1,\"show_player_type\":0,\"content\":\"早上看完夺冠下的\",\"user_hash\":\"3206047802\",\"emoticon_unique\":\"\",\"bulge_display\":0,\"recommend_score\":1,\"dm_score\":0,\"chronos_force_display\":0,\"main_state_dm_color\":\"\",\"objective_state_dm_color\":\"\",\"direction\":0,\"pk_direction\":0,\"quartet_direction\":0,\"anniversary_crowd\":0,\"yeah_space_type\":\"\",\"yeah_space_url\":\"\",\"jump_to_url\":\"\",\"space_type\":\"\",\"space_url\":\"\",\"animation\":{},\"emots\":null,\"is_audited\":false,\"id_str\":\"3f1a36646bd1a7bc3e3600709f6af9767394\",\"icon\":null,\"show_reply\":true,\"reply_mid\":170884203,\"reply_uname\":\"明奈安\",\"reply_uname_color\":\"#FB7299\",\"reply_is_mystery\":false,\"reply_type_enum\":1,\"reply_uinfo\":{\"uid\":170884203,\"base\":{\"name\":\"明奈安\",\"face\":\"https://i0.hdslb.com/bfs/face/f2d5eb3a735959797655a74d4a465f4536307423.jpg\",\"name_color\":0,\"is_mystery\":false,\"risk_ctrl_info\":null,\"origin_info\":{\"name\":\"明奈安\",\"face\":\"https://i0.hdslb.com/bfs/face/f2d5eb3a735959797655a74d4a465f4536307423.jpg\"},\"official_info\":{\"role\":0,\"title\":\"\",\"desc\":\"\",\"type\":-1},\"name_color_str\":\"\"},\"medal\":null,\"wealth\":null,\"title\":null,\"guard\":null,\"uhead_frame\":null,\"guard_leader\":null,\"anon\":null,\"bubble_box\":null,\"dm_config\":null,\"name_color\":null},\"hit_combo\":0,\"esports_jump_url\":\"\",\"is_mirror\":false,\"is_collaboration_member\":false,\"card\":{\"card_type\":0,\"oid_str\":\"\",\"oid_str_1\":\"\",\"origin_oid_str\":\"\",\"share_id\":\"\",\"share_origin\":\"\",\"from\":\"\",\"card_content\":null},\"voice\":null,\"background_type\":0}",
+        "mode": 0,
+        "show_player_type": 0,
+        "user": {
+          "anon": null,
+          "base": {
+            "face": "https://i1.hdslb.com/bfs/face/56061c2fa5d2614bf9c7ae2c3fd6acf83a65fc5b.jpg",
+            "is_mystery": false,
+            "name": "_陌花_",
+            "name_color": 0,
+            "name_color_str": "",
+            "official_info": {
+              "desc": "",
+              "role": 0,
+              "title": "",
+              "type": -1
+            },
+            "origin_info": {
+              "face": "https://i1.hdslb.com/bfs/face/56061c2fa5d2614bf9c7ae2c3fd6acf83a65fc5b.jpg",
+              "name": "_陌花_"
+            },
+            "risk_ctrl_info": null
+          },
+          "bubble_box": null,
+          "dm_config": {
+            "color": 16777215,
+            "length": 80,
+            "mode": 1
+          },
+          "guard": null,
+          "guard_leader": null,
+          "medal": {
+            "color": 2951253,
+            "color_border": 2951253,
+            "color_end": 10329087,
+            "color_start": 2951253,
+            "guard_icon": "",
+            "guard_level": 0,
+            "honor_icon": "",
+            "id": 85550,
+            "is_light": 1,
+            "level": 29,
+            "name": "ASAKI",
+            "ruid": 194484313,
+            "score": 23159,
+            "typ": 0,
+            "user_receive_count": 0,
+            "v2_medal_color_border": "#3FB4F699",
+            "v2_medal_color_end": "#3FB4F699",
+            "v2_medal_color_level": "#3FB4F6E6",
+            "v2_medal_color_start": "#3FB4F699",
+            "v2_medal_color_text": "#FFFFFF"
+          },
+          "name_color": null,
+          "title": {
+            "old_title_css_id": "",
+            "title_css_id": ""
+          },
+          "uhead_frame": null,
+          "uid": 24265696,
+          "wealth": null
+        }
+      },
+      {
+        "activity_identity": "",
+        "activity_source": 0,
+        "not_show": 0
+      },
+      0
+    ],
+    "早上看完夺冠下的",
+    [
+      24265696,
+      "_陌花_",
+      0,
+      0,
+      0,
+      10000,
+      1,
+      ""
+    ],
+    [
+      29,
+      "ASAKI",
+      "Asaki大人",
+      6154037,
+      2951253,
+      "",
+      0,
+      2951253,
+      2951253,
+      10329087,
+      0,
+      1,
+      194484313
+    ],
+    [
+      21,
+      0,
+      5805790,
+      ">50000",
+      0
+    ],
+    [
+      "",
+      ""
+    ],
+    0,
+    0,
+    null,
+    {
+      "ct": "54C26C09",
+      "ts": 1794733626
+    },
+    0,
+    0,
+    null,
+    null,
+    0,
+    240,
+    [
+      17
+    ],
+    null
+  ]
+}

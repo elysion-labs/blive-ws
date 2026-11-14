@@ -1,0 +1,132 @@
+{
+  "cmd": "SUPER_CHAT_MESSAGE",
+  "data": {
+    "background_bottom_color": "#2A60B2",
+    "background_color": "#EDF5FF",
+    "background_color_end": "#405D85",
+    "background_color_start": "#3171D2",
+    "background_icon": "",
+    "background_image": "",
+    "background_price_color": "#7497CD",
+    "color_point": 0.7,
+    "dmscore": 1190,
+    "end_time": 1794675398,
+    "gift": {
+      "gift_id": 12000,
+      "gift_name": "醒目留言",
+      "num": 1
+    },
+    "group_medal": {
+      "is_lighted": 0,
+      "medal_id": 0,
+      "name": ""
+    },
+    "id": 20383661,
+    "is_mystery": false,
+    "is_ranked": 0,
+    "is_send_audit": 1,
+    "medal_info": {
+      "anchor_roomid": 1713546334,
+      "anchor_uname": "灰泽满Hazel",
+      "guard_level": 3,
+      "icon_id": 0,
+      "is_lighted": 1,
+      "medal_color": "#ff610b",
+      "medal_color_border": 6809855,
+      "medal_color_end": 16765060,
+      "medal_color_start": 16736523,
+      "medal_level": 46,
+      "medal_name": "绿冻",
+      "special": "",
+      "target_id": 1298779265
+    },
+    "message": "亲也亲了? 绿冻的亲亲呢? 亲也亲了? 绿冻的亲亲呢? ",
+    "message_font_color": "#A3F6FF",
+    "message_trans": "",
+    "price": 30,
+    "rate": 1000,
+    "start_time": 1794675338,
+    "time": 60,
+    "token": "1A071553",
+    "trans_mark": 0,
+    "ts": 1794675338,
+    "uid": 3546983578994744,
+    "uinfo": {
+      "anon": null,
+      "base": {
+        "face": "https://i2.hdslb.com/bfs/face/9c63057cfd3c4724bc588a13b5c295d3f8c84852.jpg",
+        "is_mystery": false,
+        "name": "KOU_KEI",
+        "name_color": 0,
+        "name_color_str": "#00D1F1",
+        "official_info": {
+          "desc": "",
+          "role": 0,
+          "title": "",
+          "type": -1
+        },
+        "origin_info": {
+          "face": "https://i2.hdslb.com/bfs/face/9c63057cfd3c4724bc588a13b5c295d3f8c84852.jpg",
+          "name": "KOU_KEI"
+        },
+        "risk_ctrl_info": null
+      },
+      "bubble_box": null,
+      "dm_config": null,
+      "guard": {
+        "expired_str": "2027-01-23 23:59:59",
+        "level": 3
+      },
+      "guard_leader": null,
+      "medal": {
+        "color": 16736523,
+        "color_border": 6809855,
+        "color_end": 16765060,
+        "color_start": 16736523,
+        "guard_icon": "https://i0.hdslb.com/bfs/live/48360c8f3b7de8031e86ff1ef4a2dfc0ec2a61c2.png",
+        "guard_level": 3,
+        "honor_icon": "",
+        "id": 0,
+        "is_light": 1,
+        "level": 46,
+        "name": "绿冻",
+        "ruid": 1298779265,
+        "score": 1658797,
+        "typ": 0,
+        "user_receive_count": 0,
+        "v2_medal_color_border": "#D47AFF",
+        "v2_medal_color_end": "#A773F199",
+        "v2_medal_color_level": "#A773F1E6",
+        "v2_medal_color_start": "#A773F199",
+        "v2_medal_color_text": "#FFFFFF"
+      },
+      "name_color": null,
+      "title": {
+        "old_title_css_id": "",
+        "title_css_id": ""
+      },
+      "uhead_frame": null,
+      "uid": 3546983578994744,
+      "wealth": null
+    },
+    "user_info": {
+      "face": "https://i2.hdslb.com/bfs/face/9c63057cfd3c4724bc588a13b5c295d3f8c84852.jpg",
+      "face_frame": "https://i0.hdslb.com/bfs/live/80f732943cc3367029df65e267960d56736a82ee.png",
+      "guard_level": 3,
+      "is_main_vip": 0,
+      "is_svip": 0,
+      "is_vip": 0,
+      "level_color": "#5896de",
+      "manager": 0,
+      "name_color": "#00D1F1",
+      "title": "",
+      "uname": "KOU_KEI",
+      "user_level": 25
+    }
+  },
+  "is_report": true,
+  "msg_id": "222552828445526016:1000:1000",
+  "p_is_ack": true,
+  "p_msg_type": 1,
+  "send_time": 1794675338266
+}

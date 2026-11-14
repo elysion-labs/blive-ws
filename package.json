@@ -1,0 +1,67 @@
+{
+  "name": "@elysionjs/blive-ws",
+  "version": "0.0.0",
+  "description": "Bilibili live WebSocket client, typed event parsing, and protocol diagnostics.",
+  "homepage": "https://github.com/elysion-labs/blive-ws#readme",
+  "bugs": {
+    "url": "https://github.com/elysion-labs/blive-ws/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elysion-labs/blive-ws.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./parser": {
+      "source": "./src/parser/index.ts",
+      "types": "./dist/parser.d.mts",
+      "default": "./dist/parser.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "vp pack",
+    "changeset": "changeset",
+    "check": "vp check",
+    "example:live": "bun examples/live.ts",
+    "prepare": "vp config",
+    "ready": "vp check && vp run test && vp run build && vp run typecheck",
+    "release": "changeset publish",
+    "snapshots:update": "bun scripts/update-snapshots.ts",
+    "test": "bun test",
+    "test:live": "bun test src/parser/live.test.ts",
+    "test:unit": "bun test --path-ignore-patterns '**/live.test.ts'",
+    "typecheck": "tsc --noEmit",
+    "version": "changeset version && vp install --lockfile-only && vp fmt"
+  },
+  "devDependencies": {
+    "@byc/vp-config": "^0.1.0",
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
+    "@stylistic/eslint-plugin": "^6.0.0",
+    "@types/bun": "^1.4.4",
+    "typescript": "^7.0.2",
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.6.0",
+    "vite-plus": "1.6.0"
+  },
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.6.0"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "packageManager": "bun@1.4.4"
+}

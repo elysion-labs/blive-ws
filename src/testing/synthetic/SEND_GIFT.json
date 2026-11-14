@@ -1,0 +1,14 @@
+{
+  "cmd": "SEND_GIFT",
+  "data": {
+    "uid": 42,
+    "uname": "观众",
+    "face": "https://example.com/avatar.png",
+    "giftId": 1,
+    "giftName": "礼物",
+    "num": 2,
+    "coin_type": "gold",
+    "total_coin": 2000,
+    "timestamp": 1700000000
+  }
+}

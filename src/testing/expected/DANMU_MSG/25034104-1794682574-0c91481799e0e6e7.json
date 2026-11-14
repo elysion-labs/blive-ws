@@ -1,0 +1,58 @@
+{
+  "status": "parsed",
+  "command": "DANMU_MSG",
+  "event": {
+    "key": "1794688401137:25034104:1790248319:0afc39cdabf04cc9c310c56cf736adad27564863759cf1bc365338a1da7f8e7a",
+    "type": "message",
+    "command": "DANMU_MSG",
+    "cmd": "DANMU_MSG",
+    "roomId": 25034104,
+    "timestamp": 1794688401137,
+    "sourceId": "7be22257cfb07a514642d959e06af8c53990",
+    "user": {
+      "id": 1790248319,
+      "name": "无相御虚",
+      "avatar": "https://i0.hdslb.com/bfs/face/member/noface.jpg",
+      "guardLevel": 0
+    },
+    "content": "太好了",
+    "color": 16777215,
+    "mode": 1,
+    "fontSize": 25,
+    "medal": null,
+    "emoticon": null,
+    "inlineEmoticons": {},
+    "reply": {
+      "userId": 0,
+      "userName": ""
+    }
+  },
+  "events": [
+    {
+      "key": "1794688401137:25034104:1790248319:0afc39cdabf04cc9c310c56cf736adad27564863759cf1bc365338a1da7f8e7a",
+      "type": "message",
+      "command": "DANMU_MSG",
+      "cmd": "DANMU_MSG",
+      "roomId": 25034104,
+      "timestamp": 1794688401137,
+      "sourceId": "7be22257cfb07a514642d959e06af8c53990",
+      "user": {
+        "id": 1790248319,
+        "name": "无相御虚",
+        "avatar": "https://i0.hdslb.com/bfs/face/member/noface.jpg",
+        "guardLevel": 0
+      },
+      "content": "太好了",
+      "color": 16777215,
+      "mode": 1,
+      "fontSize": 25,
+      "medal": null,
+      "emoticon": null,
+      "inlineEmoticons": {},
+      "reply": {
+        "userId": 0,
+        "userName": ""
+      }
+    }
+  ]
+}

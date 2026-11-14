@@ -1,0 +1,253 @@
+{
+  "version": 1,
+  "source": "bilibili-live-websocket",
+  "entries": [
+    {
+      "file": "DANMU_MSG/25034104-1794682574-0c91481799e0e6e7.json",
+      "command": "DANMU_MSG",
+      "roomId": 25034104,
+      "liveStartTime": 1794682574,
+      "capturedAt": "2026-11-14T20:33:22.606Z",
+      "sha256": "0c91481799e0e6e740aa5cfd241449cbd462cdefb36133f679755b1b8e126cc1",
+      "purpose": "现代粉丝牌为空且旧数组为空，验证无粉丝牌弹幕。"
+    },
+    {
+      "file": "DANMU_MSG/25034104-f89ee7e501825f94.json",
+      "command": "DANMU_MSG",
+      "roomId": 25034104,
+      "capturedAt": "2026-11-14T20:12:47.766Z",
+      "sha256": "f89ee7e501825f940e51aca9b75416010745e71d564520392cf7cb4e73aa0407",
+      "purpose": "整条消息表情对象，验证 url、宽高的真实协议位置。"
+    },
+    {
+      "file": "DANMU_MSG/26088559-a056934d477e1767.json",
+      "command": "DANMU_MSG",
+      "roomId": 26088559,
+      "capturedAt": "2026-11-14T16:55:14.678Z",
+      "sha256": "a056934d477e1767b52ff4b2d8d37a8c20819825cb5092632c11502280c143fb",
+      "purpose": "extra JSON 内嵌表情映射，验证字符串内结构与 inlineEmoticons 解析。"
+    },
+    {
+      "file": "DANMU_MSG/6154037-487356e004fb7dc6.json",
+      "command": "DANMU_MSG",
+      "roomId": 6154037,
+      "authentication": "anonymous",
+      "liveStartTime": 1794689544,
+      "capturedAt": "2026-11-14T21:16:11.928Z",
+      "sha256": "487356e004fb7dc65528f2f243cf7abb373b16ef2cc18c0579dfc97e5538d685",
+      "purpose": "同一 sourceId 的匿名弹幕，UID 为 0、昵称遮蔽，验证用户名回退及跨登录状态的 key 限制。"
+    },
+    {
+      "file": "DANMU_MSG/6154037-c0abd230ea14266d.json",
+      "command": "DANMU_MSG",
+      "roomId": 6154037,
+      "authentication": "authenticated",
+      "capturedAt": "2026-11-15T09:07:07.436Z",
+      "sha256": "c0abd230ea14266d6df8eb18b5c12012f847677b2d752bf5f5fe5ee86d8d1f83",
+      "purpose": "首次实录非零回复目标 UID 的弹幕，验证回复身份字段。",
+      "source": {
+        "file": "events-000001.jsonl",
+        "line": 6231
+      }
+    },
+    {
+      "file": "DANMU_MSG/6154037-c6b5c20f73787e1d.json",
+      "command": "DANMU_MSG",
+      "roomId": 6154037,
+      "authentication": "authenticated",
+      "liveStartTime": 1794689544,
+      "capturedAt": "2026-11-14T21:16:11.924Z",
+      "sha256": "c6b5c20f73787e1d1e266c9df3077206a102b3a72140dcfa41846cf51f219315",
+      "purpose": "同一 sourceId 的登录弹幕配对基准，保留真实 UID。"
+    },
+    {
+      "file": "ENTRY_EFFECT/22748536-38d71eef9c3d8a8a.json",
+      "command": "ENTRY_EFFECT",
+      "roomId": 22748536,
+      "capturedAt": "2026-11-14T16:55:11.234Z",
+      "sha256": "38d71eef9c3d8a8a02f4199dcd6fe51fede433236febd1ed8bfb8ab4c76e36e2",
+      "purpose": "现代粉丝牌入场，trigger_time 超过安全整数且有亚毫秒部分，验证原始精度与时间转换。"
+    },
+    {
+      "file": "ENTRY_EFFECT/22748536-83048908e2e2c8ed.json",
+      "command": "ENTRY_EFFECT",
+      "roomId": 22748536,
+      "capturedAt": "2026-11-14T16:55:11.234Z",
+      "sha256": "83048908e2e2c8eddcce9af017e3153147cab6dcf1a0953d64bea8252a5871e8",
+      "purpose": "无粉丝牌入场，验证空值与精确纳秒处理。"
+    },
+    {
+      "file": "INTERACT_WORD_V2/26088559-5157306b2cd14b36.json",
+      "command": "INTERACT_WORD_V2",
+      "roomId": 26088559,
+      "capturedAt": "2026-11-14T16:55:12.321Z",
+      "sha256": "5157306b2cd14b36075da119c892b5301ba06a48ee3bc456ac0ac3c8d09e7e21",
+      "purpose": "未知 protobuf 广播原样保留，不尝试将不支持的命令解析为已知事件。"
+    },
+    {
+      "file": "LIKE_INFO_V3_CLICK/1713546334-3a7bd5c90695402c.json",
+      "command": "LIKE_INFO_V3_CLICK",
+      "roomId": 1713546334,
+      "capturedAt": "2026-11-14T16:55:15.140Z",
+      "sha256": "3a7bd5c90695402c3c938e2ee139c0f51cc02972a078f980781041cf2d02e224",
+      "purpose": "点赞携带有效现代用户和粉丝牌，验证现代字段解析。"
+    },
+    {
+      "file": "LIKE_INFO_V3_CLICK/7734200-1e04cd7e6d698776.json",
+      "command": "LIKE_INFO_V3_CLICK",
+      "roomId": 7734200,
+      "authentication": "authenticated",
+      "liveStartTime": 1794623151,
+      "capturedAt": "2026-11-14T21:16:11.319Z",
+      "sha256": "1e04cd7e6d69877675536b977fb4f5c8a02f123de3f8c43397097bd9ee23f178",
+      "purpose": "现代粉丝牌及大航海信息为空、旧粉丝牌全零，防止输出空粉丝牌对象。"
+    },
+    {
+      "file": "LIKE_INFO_V3_UPDATE/21756924-d3bbf8157a982c10.json",
+      "command": "LIKE_INFO_V3_UPDATE",
+      "roomId": 21756924,
+      "authentication": "authenticated",
+      "capturedAt": "2026-11-15T12:50:50.089Z",
+      "sha256": "d3bbf8157a982c104b78e163a1fbde6e7f061312726925b3e8ce1d28f406d44e",
+      "purpose": "点赞计数携带 msg_id 和 send_time，替换仅计数不同的旧实录；缺省元数据由合成用例覆盖。",
+      "source": {
+        "file": "events-000003.jsonl",
+        "line": 40803
+      }
+    },
+    {
+      "file": "LIVE/6154037-900463c8641f4fe0.json",
+      "command": "LIVE",
+      "roomId": 6154037,
+      "authentication": "authenticated",
+      "capturedAt": "2026-11-15T09:02:22.911Z",
+      "sha256": "900463c8641f4fe087957bbc615ee0363054cf122b566cbcdf572b61ed5793a2",
+      "purpose": "首次实录开播消息：自身带 live_time 和 special_types，验证时间来源与 key。",
+      "source": {
+        "file": "events-000001.jsonl",
+        "line": 4165
+      }
+    },
+    {
+      "file": "LIVE/6154037-a3c96652c6ef3147.json",
+      "command": "LIVE",
+      "roomId": 6154037,
+      "authentication": "authenticated",
+      "capturedAt": "2026-11-15T09:03:08.401Z",
+      "sha256": "a3c96652c6ef3147dc37a9fad125e7fabf5652a9efd2705425133f929dc134cc",
+      "purpose": "首次实录无 live_time 的开播消息，验证房间级 key，不沿用历史时间。",
+      "source": {
+        "file": "events-000001.jsonl",
+        "line": 4372
+      }
+    },
+    {
+      "file": "LOG_IN_NOTICE/6154037-33be4a83c8e423c0.json",
+      "command": "LOG_IN_NOTICE",
+      "roomId": 6154037,
+      "authentication": "anonymous",
+      "liveStartTime": 1794689544,
+      "capturedAt": "2026-11-14T21:16:08.576Z",
+      "sha256": "33be4a83c8e423c09d5e97292fbbb4df81639204438527e3af47c9465debade2",
+      "purpose": "匿名连接的未知 JSON 提示；同时供 JSONL 写入测试复用。"
+    },
+    {
+      "file": "PREPARING/21756924-62d5102370909cb6.json",
+      "command": "PREPARING",
+      "roomId": 21756924,
+      "authentication": "authenticated",
+      "capturedAt": "2026-11-15T11:21:31.957Z",
+      "sha256": "62d5102370909cb62cc269bad041a075457992f04d03d4a32832829e7b9fcba1",
+      "purpose": "首次实录下播，携带 msg_id 和 send_time，验证房间级 key 与上游元数据。",
+      "source": {
+        "file": "events-000002.jsonl",
+        "line": 40455
+      }
+    },
+    {
+      "file": "SEND_GIFT_V2/1713546334-5c24b5fc2c5c0585.json",
+      "command": "SEND_GIFT_V2",
+      "roomId": 1713546334,
+      "capturedAt": "2026-11-14T16:55:21.627Z",
+      "sha256": "5c24b5fc2c5c05853905ccc1ab88fb8993de13801d275f017c8fbd80aff4b522",
+      "purpose": "protobuf 粉丝牌包含亮灯和大航海字段，与字段缺省的配对礼物形成对照。"
+    },
+    {
+      "file": "SEND_GIFT_V2/6154037-11a9865a57d320ca.json",
+      "command": "SEND_GIFT_V2",
+      "roomId": 6154037,
+      "authentication": "anonymous",
+      "liveStartTime": 1794689544,
+      "capturedAt": "2026-11-14T21:16:56.274Z",
+      "sha256": "11a9865a57d320ca5b7c627d15c82e3ae2f6f7142bc932fc38c9ab85e76ff4bc",
+      "purpose": "同一 sourceId 的匿名礼物，UID 为 0、combo 含非数字用户标识，验证 key 与登录投递一致。"
+    },
+    {
+      "file": "SEND_GIFT_V2/6154037-3f82b32c8683bcc5.json",
+      "command": "SEND_GIFT_V2",
+      "roomId": 6154037,
+      "authentication": "authenticated",
+      "capturedAt": "2026-11-15T09:11:48.646Z",
+      "sha256": "3f82b32c8683bcc592330d0bc63e93459ceb194ab0f51d8c54d704ad1b462f16",
+      "purpose": "首次实录银币礼物，combo 及累计金额字段缺省，验证 price 和 key 为 null。",
+      "source": {
+        "file": "events-000001.jsonl",
+        "line": 8517
+      }
+    },
+    {
+      "file": "SEND_GIFT_V2/6154037-b7018885d5fab2ff.json",
+      "command": "SEND_GIFT_V2",
+      "roomId": 6154037,
+      "authentication": "authenticated",
+      "liveStartTime": 1794689544,
+      "capturedAt": "2026-11-14T21:16:56.270Z",
+      "sha256": "b7018885d5fab2ff9a74820e9e0112571e6180f4c006a4b52d933e7d6eb4fd8c",
+      "purpose": "同一 sourceId 的登录礼物配对基准，粉丝牌可选亮灯及大航海字段缺省。"
+    },
+    {
+      "file": "SEND_GIFT_V2/7734200-fe973611bcf96425.json",
+      "command": "SEND_GIFT_V2",
+      "roomId": 7734200,
+      "authentication": "authenticated",
+      "liveStartTime": 1794623151,
+      "capturedAt": "2026-11-14T21:16:08.718Z",
+      "sha256": "fe973611bcf9642511dc8f93bb1ae881bcbc2353ae9cdc4c26b8ae79bc5e3440",
+      "purpose": "数量 10、零级粉丝牌、累计金额 2000 与本次金额 1000 不同，分别验证 key 金额与 price。"
+    },
+    {
+      "file": "SUPER_CHAT_MESSAGE/1713546334-187a7a78280b499b.json",
+      "command": "SUPER_CHAT_MESSAGE",
+      "roomId": 1713546334,
+      "capturedAt": "2026-11-14T16:55:38.523Z",
+      "sha256": "187a7a78280b499be06cafd4d1bbb8fd3ab1dc3658bf8dbd92dc6bf9ade9040d",
+      "purpose": "带现代用户及有效粉丝牌的 SC，验证 ts、SC ID、价格和翻译字段。"
+    },
+    {
+      "file": "SUPER_CHAT_MESSAGE/6154037-bb53b549787757f3.json",
+      "command": "SUPER_CHAT_MESSAGE",
+      "roomId": 6154037,
+      "authentication": "authenticated",
+      "capturedAt": "2026-11-15T12:05:18.407Z",
+      "sha256": "bb53b549787757f3b8fa0dc07e1133991c33d9b71ca6dc0adbb49b68d77613bb",
+      "purpose": "首次实录无粉丝牌 SC，与现有带粉丝牌样本覆盖空值分支。",
+      "source": {
+        "file": "events-000003.jsonl",
+        "line": 15593
+      }
+    },
+    {
+      "file": "USER_TOAST_MSG_V2/6154037-822a27bda4c5728f.json",
+      "command": "USER_TOAST_MSG_V2",
+      "roomId": 6154037,
+      "authentication": "authenticated",
+      "capturedAt": "2026-11-15T09:05:24.819Z",
+      "sha256": "822a27bda4c5728ff97a38fae7560986028e0c9f88c38c93f52cda06c899f5af",
+      "purpose": "首次实录大航海：无顶层 send_time，验证 guard_info、pay_info 和已确认的复合 key。",
+      "source": {
+        "file": "events-000001.jsonl",
+        "line": 5383
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "status": "parsed",
+  "command": "ENTRY_EFFECT",
+  "event": {
+    "key": "1794675309229750300:22748536:20977941:entryEffect",
+    "type": "entry",
+    "command": "ENTRY_EFFECT",
+    "cmd": "ENTRY_EFFECT",
+    "roomId": 22748536,
+    "timestamp": 1794675309229,
+    "sourceId": null,
+    "user": {
+      "id": 20977941,
+      "name": "白岚凌霜",
+      "avatar": "https://i0.hdslb.com/bfs/face/af239f7145ebe7fa0cdfe52b0742bd0916e86b08.jpg",
+      "guardLevel": 3
+    },
+    "message": "<%白岚凌霜%> 来了",
+    "duration": 0,
+    "privilegeType": 3,
+    "medal": null
+  },
+  "events": [
+    {
+      "key": "1794675309229750300:22748536:20977941:entryEffect",
+      "type": "entry",
+      "command": "ENTRY_EFFECT",
+      "cmd": "ENTRY_EFFECT",
+      "roomId": 22748536,
+      "timestamp": 1794675309229,
+      "sourceId": null,
+      "user": {
+        "id": 20977941,
+        "name": "白岚凌霜",
+        "avatar": "https://i0.hdslb.com/bfs/face/af239f7145ebe7fa0cdfe52b0742bd0916e86b08.jpg",
+        "guardLevel": 3
+      },
+      "message": "<%白岚凌霜%> 来了",
+      "duration": 0,
+      "privilegeType": 3,
+      "medal": null
+    }
+  ]
+}

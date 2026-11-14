@@ -1,0 +1,52 @@
+{
+  "status": "parsed",
+  "command": "SEND_GIFT_V2",
+  "event": {
+    "key": "1794690968:7734200:1794690965.6636:33988:2000",
+    "type": "gift",
+    "command": "SEND_GIFT_V2",
+    "cmd": "SEND_GIFT_V2",
+    "roomId": 7734200,
+    "timestamp": 1794690968000,
+    "sourceId": "4839163715750338560",
+    "user": {
+      "id": 209942088,
+      "name": "xkba9084",
+      "avatar": "https://i0.hdslb.com/bfs/face/22eed132763986c0ea26a15d5bef24304bb633a2.jpg",
+      "guardLevel": 0
+    },
+    "medal": null,
+    "giftId": 33988,
+    "giftName": "人气票",
+    "quantity": 10,
+    "action": "投喂",
+    "coinType": "gold",
+    "totalCoin": 1000,
+    "price": 1
+  },
+  "events": [
+    {
+      "key": "1794690968:7734200:1794690965.6636:33988:2000",
+      "type": "gift",
+      "command": "SEND_GIFT_V2",
+      "cmd": "SEND_GIFT_V2",
+      "roomId": 7734200,
+      "timestamp": 1794690968000,
+      "sourceId": "4839163715750338560",
+      "user": {
+        "id": 209942088,
+        "name": "xkba9084",
+        "avatar": "https://i0.hdslb.com/bfs/face/22eed132763986c0ea26a15d5bef24304bb633a2.jpg",
+        "guardLevel": 0
+      },
+      "medal": null,
+      "giftId": 33988,
+      "giftName": "人气票",
+      "quantity": 10,
+      "action": "投喂",
+      "coinType": "gold",
+      "totalCoin": 1000,
+      "price": 1
+    }
+  ]
+}

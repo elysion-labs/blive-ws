@@ -1,0 +1,58 @@
+{
+  "status": "parsed",
+  "command": "ENTRY_EFFECT",
+  "event": {
+    "key": "1794675309047145700:22748536:11945752:entryEffect",
+    "type": "entry",
+    "command": "ENTRY_EFFECT",
+    "cmd": "ENTRY_EFFECT",
+    "roomId": 22748536,
+    "timestamp": 1794675309047,
+    "sourceId": null,
+    "user": {
+      "id": 11945752,
+      "name": "我永远喜欢过膝",
+      "avatar": "https://i1.hdslb.com/bfs/face/618df6775be10b870da9930abf1a0e3545fd062f.jpg",
+      "guardLevel": 3
+    },
+    "message": "<%我永远喜欢过…%> 来了",
+    "duration": 0,
+    "privilegeType": 3,
+    "medal": {
+      "name": "参拾弐",
+      "level": 21,
+      "anchorId": 2094031249,
+      "roomId": null,
+      "lighted": true,
+      "guardLevel": 3
+    }
+  },
+  "events": [
+    {
+      "key": "1794675309047145700:22748536:11945752:entryEffect",
+      "type": "entry",
+      "command": "ENTRY_EFFECT",
+      "cmd": "ENTRY_EFFECT",
+      "roomId": 22748536,
+      "timestamp": 1794675309047,
+      "sourceId": null,
+      "user": {
+        "id": 11945752,
+        "name": "我永远喜欢过膝",
+        "avatar": "https://i1.hdslb.com/bfs/face/618df6775be10b870da9930abf1a0e3545fd062f.jpg",
+        "guardLevel": 3
+      },
+      "message": "<%我永远喜欢过…%> 来了",
+      "duration": 0,
+      "privilegeType": 3,
+      "medal": {
+        "name": "参拾弐",
+        "level": 21,
+        "anchorId": 2094031249,
+        "roomId": null,
+        "lighted": true,
+        "guardLevel": 3
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "cmd": "USER_TOAST_MSG_V2",
+  "send_time": 1700000000123,
+  "data": {
+    "sender_uinfo": {
+      "uid": 42,
+      "base": {
+        "name": "船员",
+        "face": "https://example.com/guard.png"
+      }
+    },
+    "guard_info": {
+      "guard_level": 3,
+      "role_name": "舰长",
+      "start_time": 1700000000,
+      "end_time": 1702592000
+    },
+    "pay_info": {
+      "num": 1,
+      "unit": "月",
+      "price": 198000,
+      "payflow_id": "2412152205251792198695335"
+    },
+    "toast_msg": "开通了舰长"
+  }
+}

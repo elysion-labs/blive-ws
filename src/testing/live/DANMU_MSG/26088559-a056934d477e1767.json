@@ -1,0 +1,151 @@
+{
+  "cmd": "DANMU_MSG",
+  "dm_v2": "",
+  "info": [
+    [
+      0,
+      4,
+      25,
+      14893055,
+      1794675313420,
+      1882383781,
+      0,
+      "460ac575",
+      0,
+      0,
+      42,
+      "#19897EFF,#33897EFF,#33897EFF",
+      0,
+      "{}",
+      "{}",
+      {
+        "extra": "{\"send_from_me\":false,\"master_player_hidden\":false,\"mode\":0,\"color\":14893055,\"dm_type\":0,\"font_size\":25,\"player_mode\":4,\"show_player_type\":0,\"content\":\"宝宝[哇]\",\"user_hash\":\"1175111029\",\"emoticon_unique\":\"\",\"bulge_display\":0,\"recommend_score\":1,\"dm_score\":0,\"chronos_force_display\":0,\"main_state_dm_color\":\"\",\"objective_state_dm_color\":\"\",\"direction\":0,\"pk_direction\":0,\"quartet_direction\":0,\"anniversary_crowd\":0,\"yeah_space_type\":\"\",\"yeah_space_url\":\"\",\"jump_to_url\":\"\",\"space_type\":\"\",\"space_url\":\"\",\"animation\":{},\"emots\":{\"[哇]\":{\"count\":1,\"descript\":\"[哇]\",\"emoji\":\"[哇]\",\"emoticon_id\":211,\"emoticon_unique\":\"emoji_211\",\"height\":20,\"url\":\"http://i0.hdslb.com/bfs/live/650c3e22c06edcbca9756365754d38952fc019c3.png\",\"width\":20}},\"is_audited\":false,\"id_str\":\"400ad61a1fd0bd2444cecf085d6af89298\",\"icon\":null,\"show_reply\":true,\"reply_mid\":0,\"reply_uname\":\"\",\"reply_uname_color\":\"\",\"reply_is_mystery\":false,\"reply_type_enum\":0,\"hit_combo\":0,\"esports_jump_url\":\"\",\"is_mirror\":false,\"is_collaboration_member\":false,\"card\":{\"card_type\":0,\"oid_str\":\"\",\"oid_str_1\":\"\",\"origin_oid_str\":\"\",\"share_id\":\"\",\"share_origin\":\"\",\"from\":\"\",\"card_content\":null},\"voice\":null,\"background_type\":0}",
+        "mode": 0,
+        "show_player_type": 0,
+        "user": {
+          "anon": null,
+          "base": {
+            "face": "https://i1.hdslb.com/bfs/face/d4f9c32da3e7f8cbeb0effcd6758155ab0d20160.jpg",
+            "is_mystery": false,
+            "name": "只属于cisneの笨蛋鸭鸭",
+            "name_color": 0,
+            "name_color_str": "#E17AFF",
+            "official_info": {
+              "desc": "",
+              "role": 0,
+              "title": "",
+              "type": -1
+            },
+            "origin_info": {
+              "face": "https://i1.hdslb.com/bfs/face/d4f9c32da3e7f8cbeb0effcd6758155ab0d20160.jpg",
+              "name": "只属于cisneの笨蛋鸭鸭"
+            },
+            "risk_ctrl_info": null
+          },
+          "bubble_box": {
+            "color": "#19897EFF,#33897EFF,#33897EFF",
+            "id": 42,
+            "old_id": 42
+          },
+          "dm_config": {
+            "color": 14893055,
+            "length": 80,
+            "mode": 4
+          },
+          "guard": null,
+          "guard_leader": null,
+          "medal": {
+            "color": 16736523,
+            "color_border": 16771156,
+            "color_end": 16765060,
+            "color_start": 16736523,
+            "guard_icon": "https://i0.hdslb.com/bfs/live/62ac06fd72b05fe22be26426b9e1a8e1fc2c6b89.png",
+            "guard_level": 2,
+            "honor_icon": "",
+            "id": 851060,
+            "is_light": 1,
+            "level": 45,
+            "name": "希面乃",
+            "ruid": 1063558832,
+            "score": 1189625,
+            "typ": 0,
+            "user_receive_count": 0,
+            "v2_medal_color_border": "#D47AFF",
+            "v2_medal_color_end": "#A773F199",
+            "v2_medal_color_level": "#A773F1E6",
+            "v2_medal_color_start": "#A773F199",
+            "v2_medal_color_text": "#FFFFFF"
+          },
+          "name_color": null,
+          "title": {
+            "old_title_css_id": "",
+            "title_css_id": ""
+          },
+          "uhead_frame": null,
+          "uid": 285074185,
+          "wealth": null
+        }
+      },
+      {
+        "activity_identity": "",
+        "activity_source": 0,
+        "not_show": 0
+      },
+      42
+    ],
+    "宝宝[哇]",
+    [
+      285074185,
+      "只属于cisneの笨蛋鸭鸭",
+      1,
+      0,
+      0,
+      10000,
+      1,
+      "#E17AFF"
+    ],
+    [
+      45,
+      "希面乃",
+      "希丝奈cisne",
+      26088559,
+      16736523,
+      "",
+      0,
+      16771156,
+      16736523,
+      16765060,
+      2,
+      1,
+      1063558832
+    ],
+    [
+      25,
+      0,
+      5805790,
+      ">50000",
+      0
+    ],
+    [
+      "",
+      ""
+    ],
+    0,
+    2,
+    null,
+    {
+      "ct": "A265AA50",
+      "ts": 1794675313
+    },
+    0,
+    0,
+    null,
+    null,
+    0,
+    936,
+    [
+      38
+    ],
+    null
+  ]
+}

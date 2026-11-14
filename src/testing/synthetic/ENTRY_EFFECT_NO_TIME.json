@@ -1,0 +1,9 @@
+{
+  "cmd": "ENTRY_EFFECT",
+  "data": {
+    "uid": 42,
+    "uinfo": { "base": { "name": "观众" } },
+    "copy_writing_v2": "<%观众%> 进入直播间",
+    "privilege_type": 3
+  }
+}

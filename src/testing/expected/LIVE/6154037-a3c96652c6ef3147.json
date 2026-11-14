@@ -1,0 +1,28 @@
+{
+  "status": "parsed",
+  "command": "LIVE",
+  "event": {
+    "key": "6154037:liveStart",
+    "type": "liveStart",
+    "command": "LIVE",
+    "cmd": "LIVE",
+    "roomId": 6154037,
+    "timestamp": null,
+    "sourceId": null,
+    "startedAt": null,
+    "specialTypes": []
+  },
+  "events": [
+    {
+      "key": "6154037:liveStart",
+      "type": "liveStart",
+      "command": "LIVE",
+      "cmd": "LIVE",
+      "roomId": 6154037,
+      "timestamp": null,
+      "sourceId": null,
+      "startedAt": null,
+      "specialTypes": []
+    }
+  ]
+}

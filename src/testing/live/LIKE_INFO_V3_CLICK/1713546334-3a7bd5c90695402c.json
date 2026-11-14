@@ -1,0 +1,89 @@
+{
+  "cmd": "LIKE_INFO_V3_CLICK",
+  "data": {
+    "contribution_info": {
+      "grade": 0
+    },
+    "dmscore": 40,
+    "fans_medal": {
+      "anchor_roomid": 0,
+      "guard_level": 0,
+      "icon_id": 0,
+      "is_lighted": 1,
+      "medal_color": 13081892,
+      "medal_color_border": 13081892,
+      "medal_color_end": 13081892,
+      "medal_color_start": 13081892,
+      "medal_level": 19,
+      "medal_name": "绿冻",
+      "score": 1290,
+      "special": "",
+      "target_id": 1298779265
+    },
+    "group_medal": null,
+    "identities": [
+      3,
+      1
+    ],
+    "is_mystery": false,
+    "like_icon": "https://i0.hdslb.com/bfs/live/23678e3d90402bea6a65251b3e728044c21b1f0f.png",
+    "like_text": "为主播点赞了",
+    "msg_type": 6,
+    "show_area": 0,
+    "uid": 412720378,
+    "uinfo": {
+      "anon": null,
+      "base": {
+        "face": "https://i1.hdslb.com/bfs/face/0a392cbf633649d632dffcd57c7f267df324d370.jpg",
+        "is_mystery": false,
+        "name": "帽衫瓜l",
+        "name_color": 0,
+        "name_color_str": "",
+        "official_info": {
+          "desc": "",
+          "role": 0,
+          "title": "",
+          "type": -1
+        },
+        "origin_info": {
+          "face": "https://i1.hdslb.com/bfs/face/0a392cbf633649d632dffcd57c7f267df324d370.jpg",
+          "name": "帽衫瓜l"
+        },
+        "risk_ctrl_info": null
+      },
+      "guard": {
+        "expired_str": "",
+        "level": 0
+      },
+      "guard_leader": null,
+      "medal": {
+        "color": 13081892,
+        "color_border": 13081892,
+        "color_end": 13081892,
+        "color_start": 13081892,
+        "guard_icon": "",
+        "guard_level": 0,
+        "honor_icon": "",
+        "id": 0,
+        "is_light": 1,
+        "level": 19,
+        "name": "绿冻",
+        "ruid": 1298779265,
+        "score": 1290,
+        "typ": 0,
+        "user_receive_count": 0,
+        "v2_medal_color_border": "#C770A499",
+        "v2_medal_color_end": "#C770A499",
+        "v2_medal_color_level": "#C770A4E6",
+        "v2_medal_color_start": "#C770A499",
+        "v2_medal_color_text": "#FFFFFF"
+      },
+      "title": null,
+      "uhead_frame": null,
+      "uid": 412720378,
+      "wealth": null
+    },
+    "uname": "帽衫瓜l",
+    "uname_color": ""
+  }
+}

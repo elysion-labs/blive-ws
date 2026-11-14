@@ -1,0 +1,8 @@
+{
+  "cmd": "LIKE_INFO_V3_CLICK",
+  "data": {
+    "uid": 42,
+    "uname": "观众",
+    "like_text": "点赞了"
+  }
+}

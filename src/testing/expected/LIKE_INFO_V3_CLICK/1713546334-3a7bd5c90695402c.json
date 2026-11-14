@@ -1,0 +1,54 @@
+{
+  "status": "parsed",
+  "command": "LIKE_INFO_V3_CLICK",
+  "event": {
+    "key": "1713546334:like:412720378:f20d202a116426a3fb766e9eed78dd1b3f6afe2c509d1ef6e4ebf235e551ed97",
+    "type": "like",
+    "command": "LIKE_INFO_V3_CLICK",
+    "cmd": "LIKE_INFO_V3_CLICK",
+    "roomId": 1713546334,
+    "timestamp": null,
+    "sourceId": null,
+    "user": {
+      "id": 412720378,
+      "name": "帽衫瓜l",
+      "avatar": "https://i1.hdslb.com/bfs/face/0a392cbf633649d632dffcd57c7f267df324d370.jpg",
+      "guardLevel": 0
+    },
+    "message": "为主播点赞了",
+    "medal": {
+      "name": "绿冻",
+      "level": 19,
+      "anchorId": 1298779265,
+      "roomId": null,
+      "lighted": true,
+      "guardLevel": 0
+    }
+  },
+  "events": [
+    {
+      "key": "1713546334:like:412720378:f20d202a116426a3fb766e9eed78dd1b3f6afe2c509d1ef6e4ebf235e551ed97",
+      "type": "like",
+      "command": "LIKE_INFO_V3_CLICK",
+      "cmd": "LIKE_INFO_V3_CLICK",
+      "roomId": 1713546334,
+      "timestamp": null,
+      "sourceId": null,
+      "user": {
+        "id": 412720378,
+        "name": "帽衫瓜l",
+        "avatar": "https://i1.hdslb.com/bfs/face/0a392cbf633649d632dffcd57c7f267df324d370.jpg",
+        "guardLevel": 0
+      },
+      "message": "为主播点赞了",
+      "medal": {
+        "name": "绿冻",
+        "level": 19,
+        "anchorId": 1298779265,
+        "roomId": null,
+        "lighted": true,
+        "guardLevel": 0
+      }
+    }
+  ]
+}

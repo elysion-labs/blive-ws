@@ -1,0 +1,17 @@
+{
+  "cmd": "SUPER_CHAT_MESSAGE",
+  "data": {
+    "id": "90071992547409931234",
+    "uid": 42,
+    "ts": 1700000000,
+    "user_info": {
+      "uname": "观众",
+      "face": "https://example.com/avatar.png",
+      "guard_level": 3
+    },
+    "message": "醒目留言",
+    "price": 30,
+    "time": 60,
+    "medal_info": null
+  }
+}

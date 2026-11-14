@@ -1,0 +1,66 @@
+{
+  "status": "parsed",
+  "command": "SEND_GIFT_V2",
+  "event": {
+    "key": null,
+    "type": "gift",
+    "command": "SEND_GIFT_V2",
+    "cmd": "SEND_GIFT_V2",
+    "roomId": 6154037,
+    "timestamp": 1794733908000,
+    "sourceId": "4839343818660823040",
+    "user": {
+      "id": 15140428,
+      "name": "冰织的妖精桑",
+      "avatar": "http://i1.hdslb.com/bfs/face/5f6f2dd4b880ae1dfa077b0f76b19e09b0c447cd.jpg",
+      "guardLevel": 0
+    },
+    "medal": {
+      "anchorId": 13046,
+      "roomId": null,
+      "level": 31,
+      "name": "帅Pi",
+      "lighted": true,
+      "guardLevel": null
+    },
+    "giftId": 31738,
+    "giftName": "粉丝团灯牌",
+    "quantity": 1,
+    "action": "投喂",
+    "coinType": "silver",
+    "totalCoin": 1000,
+    "price": null
+  },
+  "events": [
+    {
+      "key": null,
+      "type": "gift",
+      "command": "SEND_GIFT_V2",
+      "cmd": "SEND_GIFT_V2",
+      "roomId": 6154037,
+      "timestamp": 1794733908000,
+      "sourceId": "4839343818660823040",
+      "user": {
+        "id": 15140428,
+        "name": "冰织的妖精桑",
+        "avatar": "http://i1.hdslb.com/bfs/face/5f6f2dd4b880ae1dfa077b0f76b19e09b0c447cd.jpg",
+        "guardLevel": 0
+      },
+      "medal": {
+        "anchorId": 13046,
+        "roomId": null,
+        "level": 31,
+        "name": "帅Pi",
+        "lighted": true,
+        "guardLevel": null
+      },
+      "giftId": 31738,
+      "giftName": "粉丝团灯牌",
+      "quantity": 1,
+      "action": "投喂",
+      "coinType": "silver",
+      "totalCoin": 1000,
+      "price": null
+    }
+  ]
+}

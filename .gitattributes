@@ -1,0 +1,2 @@
+# Preserve captured raw bytes used by the manifest's SHA-256 verification.
+src/testing/live/** -text

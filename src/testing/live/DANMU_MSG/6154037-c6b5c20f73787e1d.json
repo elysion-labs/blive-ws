@@ -1,0 +1,151 @@
+{
+  "cmd": "DANMU_MSG",
+  "dm_v2": "",
+  "info": [
+    [
+      0,
+      4,
+      25,
+      14893055,
+      1794690970516,
+      1794689523,
+      0,
+      "f621240d",
+      0,
+      0,
+      43,
+      "#1453BAFF,#3353BAFF,#3353BAFF",
+      0,
+      "{}",
+      "{}",
+      {
+        "extra": "{\"send_from_me\":false,\"master_player_hidden\":false,\"mode\":0,\"color\":14893055,\"dm_type\":0,\"font_size\":25,\"player_mode\":4,\"show_player_type\":0,\"content\":\"可惜\",\"user_hash\":\"4129367053\",\"emoticon_unique\":\"\",\"bulge_display\":0,\"recommend_score\":6,\"dm_score\":0,\"chronos_force_display\":0,\"main_state_dm_color\":\"\",\"objective_state_dm_color\":\"\",\"direction\":0,\"pk_direction\":0,\"quartet_direction\":0,\"anniversary_crowd\":0,\"yeah_space_type\":\"\",\"yeah_space_url\":\"\",\"jump_to_url\":\"\",\"space_type\":\"\",\"space_url\":\"\",\"animation\":{},\"emots\":null,\"is_audited\":false,\"id_str\":\"295aa13b91fc82861203c18ff86af8cf3857\",\"icon\":null,\"show_reply\":true,\"reply_mid\":0,\"reply_uname\":\"\",\"reply_uname_color\":\"\",\"reply_is_mystery\":false,\"reply_type_enum\":0,\"hit_combo\":0,\"esports_jump_url\":\"\",\"is_mirror\":false,\"is_collaboration_member\":false,\"card\":{\"card_type\":0,\"oid_str\":\"\",\"oid_str_1\":\"\",\"origin_oid_str\":\"\",\"share_id\":\"\",\"share_origin\":\"\",\"from\":\"\",\"card_content\":null},\"voice\":null,\"background_type\":0}",
+        "mode": 0,
+        "show_player_type": 0,
+        "user": {
+          "anon": null,
+          "base": {
+            "face": "http://i0.hdslb.com/bfs/face/2448e3225f3d140525f170b064e832024049d4ec.jpg",
+            "is_mystery": false,
+            "name": "雨林爹爹",
+            "name_color": 0,
+            "name_color_str": "#00D1F1",
+            "official_info": {
+              "desc": "",
+              "role": 0,
+              "title": "",
+              "type": -1
+            },
+            "origin_info": {
+              "face": "http://i0.hdslb.com/bfs/face/2448e3225f3d140525f170b064e832024049d4ec.jpg",
+              "name": "雨林爹爹"
+            },
+            "risk_ctrl_info": null
+          },
+          "bubble_box": {
+            "color": "#1453BAFF,#3353BAFF,#3353BAFF",
+            "id": 43,
+            "old_id": 43
+          },
+          "dm_config": {
+            "color": 14893055,
+            "length": 80,
+            "mode": 4
+          },
+          "guard": null,
+          "guard_leader": null,
+          "medal": {
+            "color": 1725515,
+            "color_border": 6809855,
+            "color_end": 5414290,
+            "color_start": 1725515,
+            "guard_icon": "https://i0.hdslb.com/bfs/live/fd26e0053f3d24672ffdabcb1f6d2545e26b1e33.png",
+            "guard_level": 3,
+            "honor_icon": "",
+            "id": 85550,
+            "is_light": 1,
+            "level": 24,
+            "name": "ASAKI",
+            "ruid": 194484313,
+            "score": 5800,
+            "typ": 0,
+            "user_receive_count": 0,
+            "v2_medal_color_border": "#5FC7F4",
+            "v2_medal_color_end": "#3FB4F699",
+            "v2_medal_color_level": "#3FB4F6E6",
+            "v2_medal_color_start": "#3FB4F699",
+            "v2_medal_color_text": "#FFFFFF"
+          },
+          "name_color": null,
+          "title": {
+            "old_title_css_id": "",
+            "title_css_id": ""
+          },
+          "uhead_frame": null,
+          "uid": 95924976,
+          "wealth": null
+        }
+      },
+      {
+        "activity_identity": "",
+        "activity_source": 0,
+        "not_show": 0
+      },
+      43
+    ],
+    "可惜",
+    [
+      95924976,
+      "雨林爹爹",
+      0,
+      0,
+      0,
+      10000,
+      1,
+      "#00D1F1"
+    ],
+    [
+      24,
+      "ASAKI",
+      "Asaki大人",
+      6154037,
+      1725515,
+      "",
+      0,
+      6809855,
+      1725515,
+      5414290,
+      3,
+      1,
+      194484313
+    ],
+    [
+      11,
+      0,
+      6406234,
+      ">50000",
+      0
+    ],
+    [
+      "",
+      ""
+    ],
+    0,
+    3,
+    null,
+    {
+      "ct": "5829FBB3",
+      "ts": 1794690970
+    },
+    0,
+    0,
+    null,
+    null,
+    0,
+    221,
+    [
+      9
+    ],
+    null
+  ]
+}

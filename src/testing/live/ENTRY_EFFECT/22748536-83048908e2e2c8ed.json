@@ -1,0 +1,68 @@
+{
+  "cmd": "ENTRY_EFFECT",
+  "data": {
+    "id": 4,
+    "uid": 20977941,
+    "target_id": 2094031249,
+    "mock_effect": 0,
+    "face": "https://i0.hdslb.com/bfs/face/af239f7145ebe7fa0cdfe52b0742bd0916e86b08.jpg",
+    "privilege_type": 3,
+    "copy_writing": "<%白岚凌霜%> 来了",
+    "copy_color": "#ffffff",
+    "highlight_color": "#E6FF00",
+    "priority": 70,
+    "basemap_url": "",
+    "show_avatar": 0,
+    "effective_time": 0,
+    "web_basemap_url": "https://i0.hdslb.com/bfs/live/mlive/75e5cc5dc03c3ea8f2fd40d6833f9f11a8d26b88.png",
+    "web_effective_time": 2,
+    "web_effect_close": 0,
+    "web_close_time": 0,
+    "business": 1,
+    "copy_writing_v2": "<%白岚凌霜%> 来了",
+    "icon_list": [],
+    "max_delay_time": 7,
+    "trigger_time": 1794675309229750300,
+    "identities": 6,
+    "effect_silent_time": 0,
+    "effective_time_new": 0,
+    "web_dynamic_url_webp": "",
+    "web_dynamic_url_apng": "",
+    "mobile_dynamic_url_webp": "",
+    "wealthy_info": null,
+    "new_style": 0,
+    "is_mystery": false,
+    "uinfo": {
+      "uid": 20977941,
+      "base": {
+        "name": "白岚凌霜",
+        "face": "https://i0.hdslb.com/bfs/face/af239f7145ebe7fa0cdfe52b0742bd0916e86b08.jpg",
+        "name_color": 0,
+        "is_mystery": false,
+        "risk_ctrl_info": null,
+        "origin_info": null,
+        "official_info": null,
+        "name_color_str": "#00D1F1"
+      },
+      "medal": null,
+      "wealth": {
+        "level": 9,
+        "dm_icon_key": ""
+      },
+      "title": null,
+      "guard": {
+        "level": 3,
+        "expired_str": "2026-11-30 23:59:59"
+      },
+      "uhead_frame": null,
+      "guard_leader": null,
+      "anon": null,
+      "bubble_box": null,
+      "dm_config": null,
+      "name_color": null
+    },
+    "full_cartoon_id": 1805,
+    "priority_level": 0,
+    "wealth_style_info": null
+  }
+}

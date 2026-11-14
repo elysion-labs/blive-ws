@@ -1,0 +1,60 @@
+{
+  "status": "parsed",
+  "command": "SUPER_CHAT_MESSAGE",
+  "event": {
+    "key": "1794675338:1713546334:20383661",
+    "type": "superChat",
+    "command": "SUPER_CHAT_MESSAGE",
+    "cmd": "SUPER_CHAT_MESSAGE",
+    "roomId": 1713546334,
+    "timestamp": 1794675338000,
+    "sourceId": "20383661",
+    "user": {
+      "id": 3546983578994744,
+      "name": "KOU_KEI",
+      "avatar": "https://i2.hdslb.com/bfs/face/9c63057cfd3c4724bc588a13b5c295d3f8c84852.jpg",
+      "guardLevel": 3
+    },
+    "content": "亲也亲了? 绿冻的亲亲呢? 亲也亲了? 绿冻的亲亲呢? ",
+    "translatedContent": "",
+    "price": 30,
+    "duration": 60,
+    "medal": {
+      "name": "绿冻",
+      "level": 46,
+      "anchorId": 1298779265,
+      "roomId": null,
+      "lighted": true,
+      "guardLevel": 3
+    }
+  },
+  "events": [
+    {
+      "key": "1794675338:1713546334:20383661",
+      "type": "superChat",
+      "command": "SUPER_CHAT_MESSAGE",
+      "cmd": "SUPER_CHAT_MESSAGE",
+      "roomId": 1713546334,
+      "timestamp": 1794675338000,
+      "sourceId": "20383661",
+      "user": {
+        "id": 3546983578994744,
+        "name": "KOU_KEI",
+        "avatar": "https://i2.hdslb.com/bfs/face/9c63057cfd3c4724bc588a13b5c295d3f8c84852.jpg",
+        "guardLevel": 3
+      },
+      "content": "亲也亲了? 绿冻的亲亲呢? 亲也亲了? 绿冻的亲亲呢? ",
+      "translatedContent": "",
+      "price": 30,
+      "duration": 60,
+      "medal": {
+        "name": "绿冻",
+        "level": 46,
+        "anchorId": 1298779265,
+        "roomId": null,
+        "lighted": true,
+        "guardLevel": 3
+      }
+    }
+  ]
+}

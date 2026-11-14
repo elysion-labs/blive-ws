@@ -1,0 +1,155 @@
+{
+  "cmd": "DANMU_MSG",
+  "dm_v2": "",
+  "info": [
+    [
+      0,
+      1,
+      25,
+      16777215,
+      1794687166408,
+      1794684902,
+      0,
+      "f57e373f",
+      0,
+      0,
+      0,
+      "",
+      1,
+      {
+        "bulge_display": 1,
+        "emoticon_unique": "room_25034104_53849",
+        "height": 162,
+        "in_player_area": 1,
+        "is_dynamic": 1,
+        "url": "https://i0.hdslb.com/bfs/garb/5698940c48bce445dbf5649217ab9fa0e9fc1ae4.png",
+        "width": 162
+      },
+      "{}",
+      {
+        "extra": "{\"send_from_me\":false,\"master_player_hidden\":false,\"mode\":0,\"color\":16777215,\"dm_type\":1,\"font_size\":25,\"player_mode\":1,\"show_player_type\":0,\"content\":\"无语\",\"user_hash\":\"4118689599\",\"emoticon_unique\":\"room_25034104_53849\",\"bulge_display\":1,\"recommend_score\":0,\"dm_score\":0,\"chronos_force_display\":0,\"main_state_dm_color\":\"\",\"objective_state_dm_color\":\"\",\"direction\":0,\"pk_direction\":0,\"quartet_direction\":0,\"anniversary_crowd\":0,\"yeah_space_type\":\"\",\"yeah_space_url\":\"\",\"jump_to_url\":\"\",\"space_type\":\"\",\"space_url\":\"\",\"animation\":{},\"emots\":null,\"is_audited\":false,\"id_str\":\"796babffc106cfe4109aeed4f86af8c05196\",\"icon\":null,\"show_reply\":true,\"reply_mid\":0,\"reply_uname\":\"\",\"reply_uname_color\":\"\",\"reply_is_mystery\":false,\"reply_type_enum\":0,\"hit_combo\":0,\"esports_jump_url\":\"\",\"is_mirror\":false,\"is_collaboration_member\":false,\"card\":{\"card_type\":0,\"oid_str\":\"\",\"oid_str_1\":\"\",\"origin_oid_str\":\"\",\"share_id\":\"\",\"share_origin\":\"\",\"from\":\"\",\"card_content\":null},\"voice\":null,\"background_type\":0}",
+        "mode": 0,
+        "show_player_type": 0,
+        "user": {
+          "anon": null,
+          "base": {
+            "face": "https://i1.hdslb.com/bfs/face/d569ed68e7700418d65f22a6206ba158a4954878.jpg",
+            "is_mystery": false,
+            "name": "haze1Nutt",
+            "name_color": 0,
+            "name_color_str": "",
+            "official_info": {
+              "desc": "",
+              "role": 0,
+              "title": "",
+              "type": -1
+            },
+            "origin_info": {
+              "face": "https://i1.hdslb.com/bfs/face/d569ed68e7700418d65f22a6206ba158a4954878.jpg",
+              "name": "haze1Nutt"
+            },
+            "risk_ctrl_info": null
+          },
+          "bubble_box": null,
+          "dm_config": {
+            "color": 16777215,
+            "length": 80,
+            "mode": 1
+          },
+          "guard": null,
+          "guard_leader": null,
+          "medal": {
+            "color": 6126494,
+            "color_border": 6126494,
+            "color_end": 6126494,
+            "color_start": 6126494,
+            "guard_icon": "",
+            "guard_level": 0,
+            "honor_icon": "",
+            "id": 720912,
+            "is_light": 1,
+            "level": 5,
+            "name": "奶糖花",
+            "ruid": 2132180406,
+            "score": 36,
+            "typ": 0,
+            "user_receive_count": 0,
+            "v2_medal_color_border": "#5762A799",
+            "v2_medal_color_end": "#5762A799",
+            "v2_medal_color_level": "#5762A7E6",
+            "v2_medal_color_start": "#5762A799",
+            "v2_medal_color_text": "#FFFFFF"
+          },
+          "name_color": null,
+          "title": {
+            "old_title_css_id": "",
+            "title_css_id": ""
+          },
+          "uhead_frame": null,
+          "uid": 407275888,
+          "wealth": null
+        }
+      },
+      {
+        "activity_identity": "",
+        "activity_source": 0,
+        "not_show": 0
+      },
+      0
+    ],
+    "无语",
+    [
+      407275888,
+      "haze1Nutt",
+      0,
+      0,
+      0,
+      10000,
+      1,
+      ""
+    ],
+    [
+      5,
+      "奶糖花",
+      "明前奶绿",
+      25034104,
+      6126494,
+      "",
+      0,
+      6126494,
+      6126494,
+      6126494,
+      0,
+      1,
+      2132180406
+    ],
+    [
+      12,
+      0,
+      6406234,
+      ">50000",
+      0
+    ],
+    [
+      "",
+      ""
+    ],
+    0,
+    0,
+    null,
+    {
+      "ct": "B1EDFF1E",
+      "ts": 1794687166
+    },
+    0,
+    0,
+    null,
+    null,
+    0,
+    198,
+    [
+      24
+    ],
+    null
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "status": "parsed",
+  "command": "SUPER_CHAT_MESSAGE",
+  "event": {
+    "key": "1794744316:6154037:20400696",
+    "type": "superChat",
+    "command": "SUPER_CHAT_MESSAGE",
+    "cmd": "SUPER_CHAT_MESSAGE",
+    "roomId": 6154037,
+    "timestamp": 1794744316000,
+    "sourceId": "20400696",
+    "user": {
+      "id": 270920971,
+      "name": "鸡蛋炒坤饭",
+      "avatar": "https://i1.hdslb.com/bfs/face/c94355af80fbdda03ed9d829f74d5a7b48d49805.jpg",
+      "guardLevel": 0
+    },
+    "content": "猪猪他荒野求生好看我奶都喜欢",
+    "translatedContent": "",
+    "price": 30,
+    "duration": 60,
+    "medal": null
+  },
+  "events": [
+    {
+      "key": "1794744316:6154037:20400696",
+      "type": "superChat",
+      "command": "SUPER_CHAT_MESSAGE",
+      "cmd": "SUPER_CHAT_MESSAGE",
+      "roomId": 6154037,
+      "timestamp": 1794744316000,
+      "sourceId": "20400696",
+      "user": {
+        "id": 270920971,
+        "name": "鸡蛋炒坤饭",
+        "avatar": "https://i1.hdslb.com/bfs/face/c94355af80fbdda03ed9d829f74d5a7b48d49805.jpg",
+        "guardLevel": 0
+      },
+      "content": "猪猪他荒野求生好看我奶都喜欢",
+      "translatedContent": "",
+      "price": 30,
+      "duration": 60,
+      "medal": null
+    }
+  ]
+}

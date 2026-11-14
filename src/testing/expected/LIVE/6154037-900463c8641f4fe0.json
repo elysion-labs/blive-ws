@@ -1,0 +1,32 @@
+{
+  "status": "parsed",
+  "command": "LIVE",
+  "event": {
+    "key": "1794733341:6154037:liveStart",
+    "type": "liveStart",
+    "command": "LIVE",
+    "cmd": "LIVE",
+    "roomId": 6154037,
+    "timestamp": 1794733341000,
+    "sourceId": null,
+    "startedAt": 1794733341000,
+    "specialTypes": [
+      50
+    ]
+  },
+  "events": [
+    {
+      "key": "1794733341:6154037:liveStart",
+      "type": "liveStart",
+      "command": "LIVE",
+      "cmd": "LIVE",
+      "roomId": 6154037,
+      "timestamp": 1794733341000,
+      "sourceId": null,
+      "startedAt": 1794733341000,
+      "specialTypes": [
+        50
+      ]
+    }
+  ]
+}

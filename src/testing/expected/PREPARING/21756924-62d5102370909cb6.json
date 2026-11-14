@@ -1,0 +1,24 @@
+{
+  "status": "parsed",
+  "command": "PREPARING",
+  "event": {
+    "key": "21756924:liveEnd",
+    "type": "liveEnd",
+    "command": "PREPARING",
+    "cmd": "PREPARING",
+    "roomId": 21756924,
+    "timestamp": 1794741691868,
+    "sourceId": "222691982034671616:1000:1000"
+  },
+  "events": [
+    {
+      "key": "21756924:liveEnd",
+      "type": "liveEnd",
+      "command": "PREPARING",
+      "cmd": "PREPARING",
+      "roomId": 21756924,
+      "timestamp": 1794741691868,
+      "sourceId": "222691982034671616:1000:1000"
+    }
+  ]
+}

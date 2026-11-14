@@ -1,0 +1,66 @@
+{
+  "status": "parsed",
+  "command": "SEND_GIFT_V2",
+  "event": {
+    "key": "1794691014:6154037:1794691014.8765:31164:100",
+    "type": "gift",
+    "command": "SEND_GIFT_V2",
+    "cmd": "SEND_GIFT_V2",
+    "roomId": 6154037,
+    "timestamp": 1794691014000,
+    "sourceId": "4839163911582351360",
+    "user": {
+      "id": 1859004382,
+      "name": "木小英OvO",
+      "avatar": "https://i1.hdslb.com/bfs/face/0da59c563113893c1d9d9ef6c3e6538332582549.jpg",
+      "guardLevel": 0
+    },
+    "medal": {
+      "anchorId": 194484313,
+      "roomId": null,
+      "level": 31,
+      "name": "ASAKI",
+      "lighted": null,
+      "guardLevel": null
+    },
+    "giftId": 31164,
+    "giftName": "粉丝团灯牌",
+    "quantity": 1,
+    "action": "投喂",
+    "coinType": "gold",
+    "totalCoin": 100,
+    "price": 0.1
+  },
+  "events": [
+    {
+      "key": "1794691014:6154037:1794691014.8765:31164:100",
+      "type": "gift",
+      "command": "SEND_GIFT_V2",
+      "cmd": "SEND_GIFT_V2",
+      "roomId": 6154037,
+      "timestamp": 1794691014000,
+      "sourceId": "4839163911582351360",
+      "user": {
+        "id": 1859004382,
+        "name": "木小英OvO",
+        "avatar": "https://i1.hdslb.com/bfs/face/0da59c563113893c1d9d9ef6c3e6538332582549.jpg",
+        "guardLevel": 0
+      },
+      "medal": {
+        "anchorId": 194484313,
+        "roomId": null,
+        "level": 31,
+        "name": "ASAKI",
+        "lighted": null,
+        "guardLevel": null
+      },
+      "giftId": 31164,
+      "giftName": "粉丝团灯牌",
+      "quantity": 1,
+      "action": "投喂",
+      "coinType": "gold",
+      "totalCoin": 100,
+      "price": 0.1
+    }
+  ]
+}

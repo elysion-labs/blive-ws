@@ -1,0 +1,52 @@
+{
+  "status": "parsed",
+  "command": "USER_TOAST_MSG_V2",
+  "event": {
+    "key": "1794733524:6154037:摄影师四宫辉夜:1598000",
+    "type": "guard",
+    "command": "USER_TOAST_MSG_V2",
+    "cmd": "USER_TOAST_MSG_V2",
+    "roomId": 6154037,
+    "timestamp": 1794733524000,
+    "sourceId": "2611151705065252153102781",
+    "user": {
+      "id": 27375310,
+      "name": "摄影师四宫辉夜",
+      "avatar": "",
+      "guardLevel": 2
+    },
+    "guardLevel": 2,
+    "guardName": "提督",
+    "quantity": 1,
+    "unit": "月",
+    "price": 1598,
+    "startedAt": 1794733524000,
+    "endedAt": 1794733524000,
+    "message": "<%摄影师四宫辉夜%> 在主播Asaki大人的直播间续费了提督，今天是TA陪伴主播的第1031天"
+  },
+  "events": [
+    {
+      "key": "1794733524:6154037:摄影师四宫辉夜:1598000",
+      "type": "guard",
+      "command": "USER_TOAST_MSG_V2",
+      "cmd": "USER_TOAST_MSG_V2",
+      "roomId": 6154037,
+      "timestamp": 1794733524000,
+      "sourceId": "2611151705065252153102781",
+      "user": {
+        "id": 27375310,
+        "name": "摄影师四宫辉夜",
+        "avatar": "",
+        "guardLevel": 2
+      },
+      "guardLevel": 2,
+      "guardName": "提督",
+      "quantity": 1,
+      "unit": "月",
+      "price": 1598,
+      "startedAt": 1794733524000,
+      "endedAt": 1794733524000,
+      "message": "<%摄影师四宫辉夜%> 在主播Asaki大人的直播间续费了提督，今天是TA陪伴主播的第1031天"
+    }
+  ]
+}

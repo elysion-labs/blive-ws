@@ -1,0 +1,8 @@
+{
+  "cmd": "ENTRY_EFFECT",
+  "data": {
+    "uid": 42,
+    "trigger_time": 1794675309999999999,
+    "uinfo": { "base": { "name": "观众" } }
+  }
+}

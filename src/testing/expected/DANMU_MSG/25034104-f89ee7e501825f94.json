@@ -1,0 +1,80 @@
+{
+  "status": "parsed",
+  "command": "DANMU_MSG",
+  "event": {
+    "key": "1794687166408:25034104:407275888:d9c547699be12f94f071af8d1cb7539be9d51ae0ae7c7f33a7c1cb4fb3e4e277",
+    "type": "message",
+    "command": "DANMU_MSG",
+    "cmd": "DANMU_MSG",
+    "roomId": 25034104,
+    "timestamp": 1794687166408,
+    "sourceId": "796babffc106cfe4109aeed4f86af8c05196",
+    "user": {
+      "id": 407275888,
+      "name": "haze1Nutt",
+      "avatar": "https://i1.hdslb.com/bfs/face/d569ed68e7700418d65f22a6206ba158a4954878.jpg",
+      "guardLevel": 0
+    },
+    "content": "无语",
+    "color": 16777215,
+    "mode": 1,
+    "fontSize": 25,
+    "medal": {
+      "name": "奶糖花",
+      "level": 5,
+      "anchorId": 2132180406,
+      "roomId": null,
+      "lighted": true,
+      "guardLevel": 0
+    },
+    "emoticon": {
+      "url": "https://i0.hdslb.com/bfs/garb/5698940c48bce445dbf5649217ab9fa0e9fc1ae4.png",
+      "width": 162,
+      "height": 162
+    },
+    "inlineEmoticons": {},
+    "reply": {
+      "userId": 0,
+      "userName": ""
+    }
+  },
+  "events": [
+    {
+      "key": "1794687166408:25034104:407275888:d9c547699be12f94f071af8d1cb7539be9d51ae0ae7c7f33a7c1cb4fb3e4e277",
+      "type": "message",
+      "command": "DANMU_MSG",
+      "cmd": "DANMU_MSG",
+      "roomId": 25034104,
+      "timestamp": 1794687166408,
+      "sourceId": "796babffc106cfe4109aeed4f86af8c05196",
+      "user": {
+        "id": 407275888,
+        "name": "haze1Nutt",
+        "avatar": "https://i1.hdslb.com/bfs/face/d569ed68e7700418d65f22a6206ba158a4954878.jpg",
+        "guardLevel": 0
+      },
+      "content": "无语",
+      "color": 16777215,
+      "mode": 1,
+      "fontSize": 25,
+      "medal": {
+        "name": "奶糖花",
+        "level": 5,
+        "anchorId": 2132180406,
+        "roomId": null,
+        "lighted": true,
+        "guardLevel": 0
+      },
+      "emoticon": {
+        "url": "https://i0.hdslb.com/bfs/garb/5698940c48bce445dbf5649217ab9fa0e9fc1ae4.png",
+        "width": 162,
+        "height": 162
+      },
+      "inlineEmoticons": {},
+      "reply": {
+        "userId": 0,
+        "userName": ""
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "status": "parsed",
+  "command": "LIKE_INFO_V3_UPDATE",
+  "event": {
+    "key": "21756924:likesUpdate:20091",
+    "type": "likesUpdate",
+    "command": "LIKE_INFO_V3_UPDATE",
+    "cmd": "LIKE_INFO_V3_UPDATE",
+    "roomId": 21756924,
+    "timestamp": 1794747049001,
+    "sourceId": "222703216756861440:10:10",
+    "count": 20091
+  },
+  "events": [
+    {
+      "key": "21756924:likesUpdate:20091",
+      "type": "likesUpdate",
+      "command": "LIKE_INFO_V3_UPDATE",
+      "cmd": "LIKE_INFO_V3_UPDATE",
+      "roomId": 21756924,
+      "timestamp": 1794747049001,
+      "sourceId": "222703216756861440:10:10",
+      "count": 20091
+    }
+  ]
+}

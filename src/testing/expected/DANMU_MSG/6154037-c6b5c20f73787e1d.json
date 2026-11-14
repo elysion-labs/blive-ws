@@ -1,0 +1,72 @@
+{
+  "status": "parsed",
+  "command": "DANMU_MSG",
+  "event": {
+    "key": "1794690970516:6154037:95924976:bd0ba96ae73572983710043f574ab297d63815eb8cf03632a84f523877bdcd5d",
+    "type": "message",
+    "command": "DANMU_MSG",
+    "cmd": "DANMU_MSG",
+    "roomId": 6154037,
+    "timestamp": 1794690970516,
+    "sourceId": "295aa13b91fc82861203c18ff86af8cf3857",
+    "user": {
+      "id": 95924976,
+      "name": "雨林爹爹",
+      "avatar": "http://i0.hdslb.com/bfs/face/2448e3225f3d140525f170b064e832024049d4ec.jpg",
+      "guardLevel": 3
+    },
+    "content": "可惜",
+    "color": 14893055,
+    "mode": 4,
+    "fontSize": 25,
+    "medal": {
+      "name": "ASAKI",
+      "level": 24,
+      "anchorId": 194484313,
+      "roomId": null,
+      "lighted": true,
+      "guardLevel": 3
+    },
+    "emoticon": null,
+    "inlineEmoticons": {},
+    "reply": {
+      "userId": 0,
+      "userName": ""
+    }
+  },
+  "events": [
+    {
+      "key": "1794690970516:6154037:95924976:bd0ba96ae73572983710043f574ab297d63815eb8cf03632a84f523877bdcd5d",
+      "type": "message",
+      "command": "DANMU_MSG",
+      "cmd": "DANMU_MSG",
+      "roomId": 6154037,
+      "timestamp": 1794690970516,
+      "sourceId": "295aa13b91fc82861203c18ff86af8cf3857",
+      "user": {
+        "id": 95924976,
+        "name": "雨林爹爹",
+        "avatar": "http://i0.hdslb.com/bfs/face/2448e3225f3d140525f170b064e832024049d4ec.jpg",
+        "guardLevel": 3
+      },
+      "content": "可惜",
+      "color": 14893055,
+      "mode": 4,
+      "fontSize": 25,
+      "medal": {
+        "name": "ASAKI",
+        "level": 24,
+        "anchorId": 194484313,
+        "roomId": null,
+        "lighted": true,
+        "guardLevel": 3
+      },
+      "emoticon": null,
+      "inlineEmoticons": {},
+      "reply": {
+        "userId": 0,
+        "userName": ""
+      }
+    }
+  ]
+}

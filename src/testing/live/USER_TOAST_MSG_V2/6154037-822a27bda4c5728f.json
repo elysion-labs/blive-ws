@@ -1,0 +1,55 @@
+{
+  "cmd": "USER_TOAST_MSG_V2",
+  "data": {
+    "sender_uinfo": {
+      "uid": 27375310,
+      "base": {
+        "name": "摄影师四宫辉夜",
+        "face": ""
+      }
+    },
+    "receiver_uinfo": {
+      "uid": 194484313,
+      "base": {
+        "name": "Asaki大人",
+        "face": "https://i1.hdslb.com/bfs/face/84a861facfa041b46f7a30897e9ed3f2e05e0519.jpg"
+      }
+    },
+    "guard_info": {
+      "guard_level": 2,
+      "role_name": "提督",
+      "room_guard_count": 1189,
+      "op_type": 2,
+      "start_time": 1794733524,
+      "end_time": 1794733524
+    },
+    "group_guard_info": null,
+    "pay_info": {
+      "payflow_id": "2611151705065252153102781",
+      "price": 1598000,
+      "num": 1,
+      "unit": "月"
+    },
+    "gift_info": {
+      "gift_id": 10002
+    },
+    "effect_info": {
+      "effect_id": 398,
+      "room_effect_id": 591,
+      "face_effect_id": 43,
+      "room_gift_effect_id": 0,
+      "room_group_effect_id": 398,
+      "ship_effect_id": 591
+    },
+    "toast_msg": "<%摄影师四宫辉夜%> 在主播Asaki大人的直播间续费了提督，今天是TA陪伴主播的第1031天",
+    "option": {
+      "anchor_show": true,
+      "user_show": true,
+      "is_group": 0,
+      "is_show": 0,
+      "source": 0,
+      "svga_block": 0,
+      "color": "#E17AFF"
+    }
+  }
+}

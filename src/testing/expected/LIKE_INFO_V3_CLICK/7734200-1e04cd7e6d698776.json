@@ -1,0 +1,40 @@
+{
+  "status": "parsed",
+  "command": "LIKE_INFO_V3_CLICK",
+  "event": {
+    "key": "7734200:like:480274547:f20d202a116426a3fb766e9eed78dd1b3f6afe2c509d1ef6e4ebf235e551ed97",
+    "type": "like",
+    "command": "LIKE_INFO_V3_CLICK",
+    "cmd": "LIKE_INFO_V3_CLICK",
+    "roomId": 7734200,
+    "timestamp": null,
+    "sourceId": null,
+    "user": {
+      "id": 480274547,
+      "name": "T莱特",
+      "avatar": "https://i2.hdslb.com/bfs/face/cb961d7314a6a31faab68d39ca5e5524d0e18b3c.jpg",
+      "guardLevel": null
+    },
+    "message": "为主播点赞了",
+    "medal": null
+  },
+  "events": [
+    {
+      "key": "7734200:like:480274547:f20d202a116426a3fb766e9eed78dd1b3f6afe2c509d1ef6e4ebf235e551ed97",
+      "type": "like",
+      "command": "LIKE_INFO_V3_CLICK",
+      "cmd": "LIKE_INFO_V3_CLICK",
+      "roomId": 7734200,
+      "timestamp": null,
+      "sourceId": null,
+      "user": {
+        "id": 480274547,
+        "name": "T莱特",
+        "avatar": "https://i2.hdslb.com/bfs/face/cb961d7314a6a31faab68d39ca5e5524d0e18b3c.jpg",
+        "guardLevel": null
+      },
+      "message": "为主播点赞了",
+      "medal": null
+    }
+  ]
+}

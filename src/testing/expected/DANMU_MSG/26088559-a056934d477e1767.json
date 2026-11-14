@@ -1,0 +1,84 @@
+{
+  "status": "parsed",
+  "command": "DANMU_MSG",
+  "event": {
+    "key": "1794675313420:26088559:285074185:ee87a074dafc6b74bddff5a737003e69f88a5d9a6442c395fbc9cb01e9f405db",
+    "type": "message",
+    "command": "DANMU_MSG",
+    "cmd": "DANMU_MSG",
+    "roomId": 26088559,
+    "timestamp": 1794675313420,
+    "sourceId": "400ad61a1fd0bd2444cecf085d6af89298",
+    "user": {
+      "id": 285074185,
+      "name": "只属于cisneの笨蛋鸭鸭",
+      "avatar": "https://i1.hdslb.com/bfs/face/d4f9c32da3e7f8cbeb0effcd6758155ab0d20160.jpg",
+      "guardLevel": 2
+    },
+    "content": "宝宝[哇]",
+    "color": 14893055,
+    "mode": 4,
+    "fontSize": 25,
+    "medal": {
+      "name": "希面乃",
+      "level": 45,
+      "anchorId": 1063558832,
+      "roomId": null,
+      "lighted": true,
+      "guardLevel": 2
+    },
+    "emoticon": null,
+    "inlineEmoticons": {
+      "[哇]": {
+        "url": "http://i0.hdslb.com/bfs/live/650c3e22c06edcbca9756365754d38952fc019c3.png",
+        "width": 20,
+        "height": 20
+      }
+    },
+    "reply": {
+      "userId": 0,
+      "userName": ""
+    }
+  },
+  "events": [
+    {
+      "key": "1794675313420:26088559:285074185:ee87a074dafc6b74bddff5a737003e69f88a5d9a6442c395fbc9cb01e9f405db",
+      "type": "message",
+      "command": "DANMU_MSG",
+      "cmd": "DANMU_MSG",
+      "roomId": 26088559,
+      "timestamp": 1794675313420,
+      "sourceId": "400ad61a1fd0bd2444cecf085d6af89298",
+      "user": {
+        "id": 285074185,
+        "name": "只属于cisneの笨蛋鸭鸭",
+        "avatar": "https://i1.hdslb.com/bfs/face/d4f9c32da3e7f8cbeb0effcd6758155ab0d20160.jpg",
+        "guardLevel": 2
+      },
+      "content": "宝宝[哇]",
+      "color": 14893055,
+      "mode": 4,
+      "fontSize": 25,
+      "medal": {
+        "name": "希面乃",
+        "level": 45,
+        "anchorId": 1063558832,
+        "roomId": null,
+        "lighted": true,
+        "guardLevel": 2
+      },
+      "emoticon": null,
+      "inlineEmoticons": {
+        "[哇]": {
+          "url": "http://i0.hdslb.com/bfs/live/650c3e22c06edcbca9756365754d38952fc019c3.png",
+          "width": 20,
+          "height": 20
+        }
+      },
+      "reply": {
+        "userId": 0,
+        "userName": ""
+      }
+    }
+  ]
+}

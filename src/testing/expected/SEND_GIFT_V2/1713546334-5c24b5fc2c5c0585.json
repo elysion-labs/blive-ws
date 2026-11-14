@@ -1,0 +1,66 @@
+{
+  "status": "parsed",
+  "command": "SEND_GIFT_V2",
+  "event": {
+    "key": "1794675320:1713546334:1794675320.7228:31164:100",
+    "type": "gift",
+    "command": "SEND_GIFT_V2",
+    "cmd": "SEND_GIFT_V2",
+    "roomId": 1713546334,
+    "timestamp": 1794675320000,
+    "sourceId": "4839098085504301568",
+    "user": {
+      "id": 178398894,
+      "name": "不太会读书",
+      "avatar": "https://i0.hdslb.com/bfs/face/bb5faf3cda93ae5f9c859639f2876071d4eee98c.jpg",
+      "guardLevel": 3
+    },
+    "medal": {
+      "anchorId": 2091418780,
+      "roomId": null,
+      "level": 41,
+      "name": "雅团子",
+      "lighted": true,
+      "guardLevel": 2
+    },
+    "giftId": 31164,
+    "giftName": "粉丝团灯牌",
+    "quantity": 1,
+    "action": "投喂",
+    "coinType": "gold",
+    "totalCoin": 100,
+    "price": 0.1
+  },
+  "events": [
+    {
+      "key": "1794675320:1713546334:1794675320.7228:31164:100",
+      "type": "gift",
+      "command": "SEND_GIFT_V2",
+      "cmd": "SEND_GIFT_V2",
+      "roomId": 1713546334,
+      "timestamp": 1794675320000,
+      "sourceId": "4839098085504301568",
+      "user": {
+        "id": 178398894,
+        "name": "不太会读书",
+        "avatar": "https://i0.hdslb.com/bfs/face/bb5faf3cda93ae5f9c859639f2876071d4eee98c.jpg",
+        "guardLevel": 3
+      },
+      "medal": {
+        "anchorId": 2091418780,
+        "roomId": null,
+        "level": 41,
+        "name": "雅团子",
+        "lighted": true,
+        "guardLevel": 2
+      },
+      "giftId": 31164,
+      "giftName": "粉丝团灯牌",
+      "quantity": 1,
+      "action": "投喂",
+      "coinType": "gold",
+      "totalCoin": 100,
+      "price": 0.1
+    }
+  ]
+}

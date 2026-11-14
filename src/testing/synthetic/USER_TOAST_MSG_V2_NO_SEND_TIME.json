@@ -1,0 +1,9 @@
+{
+  "cmd": "USER_TOAST_MSG_V2",
+  "data": {
+    "sender_uinfo": { "uid": 32800159, "base": { "name": "船员" } },
+    "guard_info": { "guard_level": 3, "role_name": "舰长", "start_time": 1794153767 },
+    "pay_info": { "num": 1, "unit": "月", "price": 138000 },
+    "toast_msg": "开通了舰长"
+  }
+}

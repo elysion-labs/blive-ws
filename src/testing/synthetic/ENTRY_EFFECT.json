@@ -1,0 +1,17 @@
+{
+  "cmd": "ENTRY_EFFECT",
+  "data": {
+    "uid": 42,
+    "trigger_time": 1700000000123000000,
+    "face": "https://example.com/avatar.png",
+    "copy_writing_v2": "<%观众%> 进入直播间",
+    "effective_time": 5,
+    "privilege_type": 3,
+    "uinfo": {
+      "base": {
+        "name": "观众"
+      },
+      "medal": null
+    }
+  }
+}
