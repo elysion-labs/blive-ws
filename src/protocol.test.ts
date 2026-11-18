@@ -12,7 +12,7 @@ function compressed(version: number, data: Buffer): Buffer {
   return Buffer.concat([result, payload]);
 }
 
-describe('live capture packet framing', () => {
+describe('live packet framing', () => {
   it('decodes multiple packets without truncating the second message', () => {
     const first = encodePacket(5, '{"cmd":"LIVE"}');
     const second = encodePacket(8, '{"code":0}');

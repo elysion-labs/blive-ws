@@ -26,6 +26,11 @@
       "source": "./src/parser/index.ts",
       "types": "./dist/parser.d.mts",
       "default": "./dist/parser.mjs"
+    },
+    "./protocol": {
+      "source": "./src/protocol.ts",
+      "types": "./dist/protocol.d.mts",
+      "default": "./dist/protocol.mjs"
     }
   },
   "publishConfig": {

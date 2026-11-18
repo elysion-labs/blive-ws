@@ -3,13 +3,13 @@ import { readFileSync } from 'node:fs';
 
 import type { BiliEvent } from '../parser/events';
 import { stringifyRawJson } from '../parser/json';
+import { decodePackets, encodePacket } from '../protocol';
 import { fixtures } from '../testing/fixtures';
 import liveNoTime from '../testing/synthetic/LIVE_NO_TIME.json';
 import jsonGiftKey from '../testing/synthetic/SEND_GIFT_KEY.json';
 import gift from '../testing/synthetic/SEND_GIFT_V2_BATCH.json';
 import protobufGiftKey from '../testing/synthetic/SEND_GIFT_V2_KEY.json';
 import { createClient } from './client';
-import { decodePackets, encodePacket } from './protocol';
 import type { ClientOptions, Fetcher } from './types';
 
 const resources: { close: () => void | Promise<void> }[] = [];

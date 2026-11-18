@@ -120,16 +120,6 @@ export interface ConnectionInfo {
   };
 }
 
-export interface Packet {
-  operation: number;
-  body: Buffer;
-}
-
-export interface FramedPacket extends Packet {
-  length: number;
-  version: number;
-}
-
 export interface SessionCallbacks {
   onAuthenticated: () => void;
   onMessage: (raw: unknown) => void;

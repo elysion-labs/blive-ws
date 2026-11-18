@@ -13,7 +13,7 @@
 直播事件不总是按预期到来：同一个命令可能出现新字段，熟悉的消息可能换了格式，也可能遇到还没有见过的事件。`@elysionjs/blive-ws` 保留收到的原始数据，把能理解的部分转成类型化事件，把需要关注的变化交给你的程序。
 
 > [!NOTE]
-> 公开 API 包含直播客户端和独立解析器。采集脚本复用同一个客户端。
+> 公开 API 包含直播客户端、独立解析器和二进制协议入口。采集脚本复用同一个客户端。
 
 ## 现在可以做什么？
 
@@ -94,6 +94,8 @@ console.log(parser.getStatus());
 只需要转换一条消息时，调用 `parseEvent(raw, { roomId })`。返回值以 `status` 区分 `parsed`、`unknown` 和 `mismatch`，始终保留 `raw`。
 
 `result.events` 包含全部事件，`result.event` 保留首个事件的便捷访问。`SEND_GIFT_V2` 可能一次产生多个 `gift`，客户端和解析器订阅会逐件通知。`/parser` 入口独立于网络客户端。
+
+如果已经通过 Electron CDP 等方式拿到直播间 WebSocket 消息，可直接使用 [二进制协议入口](./docs/api.md#binary-protocol)。
 
 <a id="events"></a>
 

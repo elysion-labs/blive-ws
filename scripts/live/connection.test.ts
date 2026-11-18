@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, it } from 'bun:test';
 import { readFileSync } from 'node:fs';
 
-import { encodePacket, decodePackets } from '../../src/client/protocol';
 import type { Fetcher } from '../../src/client/types';
 import { stringifyRawJson } from '../../src/parser/json';
+import { encodePacket, decodePackets } from '../../src/protocol';
 import { captureRoom } from './connection';
 import type { CaptureRecord } from './types';
 

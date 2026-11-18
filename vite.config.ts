@@ -18,7 +18,11 @@ export default byc(
       ignorePatterns: ['src/testing/live/**', 'src/testing/expected/**'],
     },
     pack: {
-      entry: { index: 'src/index.ts', parser: 'src/parser/index.ts' },
+      entry: {
+        index: 'src/index.ts',
+        parser: 'src/parser/index.ts',
+        protocol: 'src/protocol.ts',
+      },
       platform: 'node',
       format: 'esm',
       dts: { tsconfig: 'tsconfig.build.json' },

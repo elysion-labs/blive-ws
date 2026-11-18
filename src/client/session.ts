@@ -1,8 +1,9 @@
 import { parseRawJson } from '../parser/json';
+import { decodePackets, encodePacket } from '../protocol';
+import type { Packet } from '../protocol';
 import { requestHeaders } from './constants';
 import { ConnectionError } from './errors';
-import { decodePackets, encodePacket } from './protocol';
-import type { Packet, SessionOptions } from './types';
+import type { SessionOptions } from './types';
 
 export function openSession(options: SessionOptions): Promise<void> {
   options.signal.throwIfAborted();

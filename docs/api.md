@@ -1,6 +1,37 @@
 # @elysionjs/blive-ws
 
-这里说明独立 JSON 解析器；连接、认证、心跳和重连见 [客户端文档](./client.md)。两者组织在 src/parser 与 src/client 中，采集脚本复用正式客户端。
+这里说明二进制协议入口与独立 JSON 解析器。连接、认证、心跳和重连见 [客户端文档](./client.md)。
+
+<a id="binary-protocol"></a>
+
+## 二进制协议
+
+`@elysionjs/blive-ws/protocol` 适用于 Node.js、Bun 和 Electron 主进程。`decodePackets(buffer)` 接收一条完整的 WebSocket 二进制消息，按顺序返回解包后的 `Packet[]`，并处理 zlib 和 Brotli 压缩批次。无效包或超出解压限制时会抛出错误。`encodePacket(operation, body?)` 将操作码和可选的 UTF-8 字符串编码为一个包。
+
+下面的函数接收来自已筛选的 B 站弹幕连接的 CDP 二进制消息，即 `Network.webSocketFrameReceived` 中 `response.opcode === 2` 时的 `response.payloadData`。房间 ID 由调用方提供。
+
+```ts
+import { createParser, parseRawJson } from '@elysionjs/blive-ws/parser';
+import { decodePackets } from '@elysionjs/blive-ws/protocol';
+
+const parser = createParser({ roomId: 21452505 });
+
+parser.on('event', event => {
+  if (event.type === 'message') {
+    console.log(event.user.name, event.content);
+  }
+});
+
+function handlePayload(payloadData: string) {
+  const packets = decodePackets(Buffer.from(payloadData, 'base64'));
+
+  for (const { operation, body } of packets) {
+    if (operation === 5) {
+      parser.parse(parseRawJson(body.toString('utf8')));
+    }
+  }
+}
+```
 
 ## 无状态解析
 

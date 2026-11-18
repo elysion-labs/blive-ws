@@ -1,7 +1,17 @@
 import { brotliDecompressSync, inflateSync } from 'node:zlib';
 
-import { maxCompressionDepth, maxDecodedBytes } from './constants';
-import type { FramedPacket, Packet } from './types';
+export interface Packet {
+  operation: number;
+  body: Buffer;
+}
+
+interface FramedPacket extends Packet {
+  length: number;
+  version: number;
+}
+
+const maxDecodedBytes = 16 * 1024 * 1024;
+const maxCompressionDepth = 4;
 
 export function encodePacket(operation: number, body = ''): Buffer {
   const payload = Buffer.from(body);
