@@ -22,6 +22,7 @@ export default byc(
         index: 'src/index.ts',
         parser: 'src/parser/index.ts',
         protocol: 'src/protocol.ts',
+        electron: 'src/electron.ts',
       },
       platform: 'node',
       format: 'esm',

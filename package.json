@@ -31,6 +31,11 @@
       "source": "./src/protocol.ts",
       "types": "./dist/protocol.d.mts",
       "default": "./dist/protocol.mjs"
+    },
+    "./electron": {
+      "source": "./src/electron.ts",
+      "types": "./dist/electron.d.mts",
+      "default": "./dist/electron.mjs"
     }
   },
   "publishConfig": {
@@ -61,6 +66,14 @@
     "typescript": "^7.0.2",
     "vite": "npm:@voidzero-dev/vite-plus-core@1.6.0",
     "vite-plus": "1.6.0"
+  },
+  "peerDependencies": {
+    "electron": "*"
+  },
+  "peerDependenciesMeta": {
+    "electron": {
+      "optional": true
+    }
   },
   "optionalDependencies": {
     "cookie": "^2.0.2",

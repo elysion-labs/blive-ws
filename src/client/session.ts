@@ -1,9 +1,66 @@
 import { parseRawJson } from '../parser/json';
 import { decodePackets, encodePacket } from '../protocol';
 import type { Packet } from '../protocol';
+import { resolveConnection } from './api';
+import { abortable } from './async';
 import { requestHeaders } from './constants';
 import { ConnectionError } from './errors';
-import type { SessionOptions } from './types';
+import { resolveOptions } from './options';
+import type { ClientOptions, CookieSource, LiveSession, SessionOptions } from './types';
+
+export function createWebSocketSession(options: ClientOptions): LiveSession {
+  const resolved = resolveOptions(options);
+
+  return async session => {
+    const { signal } = session;
+    const preparation = AbortSignal.any([signal, AbortSignal.timeout(resolved.connectTimeout)]);
+    const cookie = await readCookie(resolved.cookie, preparation);
+
+    const connection = await resolveConnection(
+      resolved.roomId,
+      cookie,
+      preparation,
+      resolved.fetch,
+      session.retryCount,
+      resolved.parseCookie,
+    );
+
+    signal.throwIfAborted();
+    session.onRoom(connection.roomId, connection.liveStartTime);
+
+    await openSession({
+      connection,
+      cookie,
+      signal,
+      connectTimeout: resolved.connectTimeout,
+      heartbeatInterval: resolved.heartbeatInterval,
+      heartbeatTimeout: resolved.heartbeatTimeout,
+      createWebSocket: resolved.createWebSocket,
+      onAuthenticated: () => {
+        session.onConnected();
+        session.onReady();
+      },
+      onMessage: session.onMessage,
+      onHeartbeat: session.onHeartbeat,
+    });
+  };
+}
+
+async function readCookie(source: CookieSource | undefined, signal: AbortSignal): Promise<string> {
+  try {
+    const value = typeof source === 'function' ? source(signal) : source;
+    const cookie = await abortable(Promise.resolve(value ?? ''), signal);
+
+    if (typeof cookie !== 'string' || /[\r\n]/.test(cookie)) {
+      throw new Error('Invalid cookie');
+    }
+
+    return cookie;
+  } catch {
+    // Provider and fetch errors may embed Cookie headers; never forward them.
+    throw new ConnectionError('Cookie provider failed or was cancelled');
+  }
+}
 
 export function openSession(options: SessionOptions): Promise<void> {
   options.signal.throwIfAborted();

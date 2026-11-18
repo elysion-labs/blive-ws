@@ -117,3 +117,29 @@ bun examples/live.ts 732 --anonymous
 默认使用本地 `.env` 的 `BILI_COKKIES`。`--anonymous` 明确不读取或传入 Cookie，即使 `.env` 中存在该变量。未指定房间时按 BILI_ROOM_IDS 的第一项，或自动发现一个在播房间。Ctrl+C 停止；可设置 BILI_EXAMPLE_SECONDS 在认证后自动结束。
 
 采集任务 `vp run capture` 也使用 `createClient()` 并保留自动重连，不会维护第二套连接或解包实现；`vp run capture:anonymous` 创建不传 Cookie 的实例。两项任务均关闭缓存，配置继续读取 `.env`。采集默认持续运行，每条广播立即追加到 `.captures/` 中的 JSONL 分段，不把消息积累到内存。先由 agent 审阅候选，再选入独立 JSON 回归语料，详见 [JSONL 采集](./collection.md)。独立解析场景从 `@elysionjs/blive-ws/parser` 导入，避免加载网络客户端。
+
+## Electron 主进程
+
+从 `@elysionjs/blive-ws/electron` 导入 `createElectronClient()`。它返回同一个 `LiveClient`，复用事件、心跳、人气和解析诊断。请传入真实房间号，供弹幕事件和事件 key 使用。
+
+```ts
+import { createElectronClient } from '@elysionjs/blive-ws/electron';
+import { BrowserWindow } from 'electron';
+
+const window = new BrowserWindow();
+await window.loadURL('about:blank');
+
+const client = createElectronClient({ roomId: 25034104, webContents: window.webContents });
+client.on('event', event => console.log(event));
+client.on('error', error => console.error(error.message));
+
+try {
+  await client.start();
+  await window.loadURL('https://live.bilibili.com/25034104');
+} catch (error) {
+  await client.stop();
+  throw error;
+}
+```
+
+`electron` 是可选 peer dependency。Electron 模式的 `start()` 在网络监听就绪时返回，观察到 B 站协议的入站消息后才进入 `connected`。页面负责认证、心跳和重连，`client.stop()` 释放监听和 debugger，窗口由调用方管理。

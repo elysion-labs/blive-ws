@@ -2,23 +2,24 @@ import { createParser } from '../parser/instance';
 import { normalizeCommand } from '../parser/parse';
 import type { EventParser } from '../parser/types';
 import { record } from '../parser/validation';
-import { resolveConnection } from './api';
-import { abortable, deferred, delay } from './async';
+import { deferred, delay } from './async';
 import { Emitter } from './emitter';
 import { ConnectionError } from './errors';
-import { resolveOptions } from './options';
-import { openSession } from './session';
+import { resolveReconnect } from './options';
+import { createWebSocketSession } from './session';
 import type {
   ClientEventMap,
   ClientOptions,
   ClientRun,
   ClientState,
   ClientStatus,
-  ResolvedOptions,
+  LiveSession,
+  ReconnectOptions,
 } from './types';
 
 export class LiveClient {
-  private readonly options: ResolvedOptions;
+  private readonly reconnect: false | Required<ReconnectOptions>;
+  private readonly session: LiveSession;
   private readonly parser: EventParser;
   private readonly emitter = new Emitter<ClientEventMap>(() =>
     this.report(new ConnectionError('Event subscriber failed')),
@@ -26,8 +27,9 @@ export class LiveClient {
   private readonly state: Omit<ClientStatus, 'parser'>;
   private run: ClientRun | null = null;
 
-  constructor(options: ClientOptions) {
-    this.options = resolveOptions(options);
+  constructor(options: ClientOptions, session?: LiveSession) {
+    this.reconnect = resolveReconnect(options);
+    this.session = session ?? createWebSocketSession(options);
     this.parser = createParser({ roomId: options.roomId, observeShapes: options.observeShapes });
     this.state = {
       id: crypto.randomUUID(),
@@ -66,7 +68,7 @@ export class LiveClient {
     };
   }
 
-  /** Resolves after Bilibili accepts authentication, including initial automatic retries. */
+  /** Resolves when the transport is ready to receive messages. */
   start(): Promise<void> {
     if (this.state.status === 'disposed') {
       return Promise.reject(new Error('Client is disposed'));
@@ -94,7 +96,7 @@ export class LiveClient {
     const run = this.run;
     this.run = null;
     run?.controller.abort();
-    run?.ready.reject(new ConnectionError('Client stopped before authentication completed'));
+    run?.ready.reject(new ConnectionError('Client stopped before the session was ready'));
     this.state.nextRetryAt = null;
 
     if (this.state.status !== 'disposed') {
@@ -138,93 +140,55 @@ export class LiveClient {
     this.emitter.emit('error', error, false);
   }
 
-  private async cookie(signal: AbortSignal): Promise<string> {
-    try {
-      const source = this.options.cookie;
-      const value = typeof source === 'function' ? source(signal) : source;
-      const cookie = await abortable(Promise.resolve(value ?? ''), signal);
-
-      if (typeof cookie !== 'string' || /[\r\n]/.test(cookie)) {
-        throw new Error('Invalid cookie');
-      }
-
-      return cookie;
-    } catch {
-      // Provider and fetch errors may embed Cookie headers; never forward them.
-      throw new ConnectionError('Cookie provider failed or was cancelled');
-    }
-  }
-
   private async attempt(run: ClientRun): Promise<void> {
     const signal = run.controller.signal;
-    const preparation = AbortSignal.any([signal, AbortSignal.timeout(this.options.connectTimeout)]);
-    const cookie = await this.cookie(preparation);
-
-    const connection = await resolveConnection(
-      this.options.roomId,
-      cookie,
-      preparation,
-      this.options.fetch,
-      this.state.retryCount,
-      this.options.parseCookie,
-    );
-
-    signal.throwIfAborted();
-    this.state.resolvedRoomId = connection.roomId;
-    this.state.liveStartTime = connection.liveStartTime;
     let healthyTimer: ReturnType<typeof setTimeout> | undefined;
 
     try {
-      await openSession({
-        connection,
-        cookie,
+      await this.session({
         signal,
-        connectTimeout: this.options.connectTimeout,
-        heartbeatInterval: this.options.heartbeatInterval,
-        heartbeatTimeout: this.options.heartbeatTimeout,
-        createWebSocket: this.options.createWebSocket,
-        onAuthenticated: () => {
-          if (signal.aborted) {
+        retryCount: this.state.retryCount,
+        onReady: () => {
+          if (!signal.aborted) {
+            run.ready.resolve();
+          }
+        },
+        onConnected: () => {
+          if (signal.aborted || this.state.status === 'connected') {
             return;
           }
 
           this.state.connectedAt = Date.now();
           this.state.nextRetryAt = null;
-          const reconnect = this.options.reconnect;
 
-          if (reconnect) {
+          if (this.reconnect) {
             healthyTimer = setTimeout(() => {
               this.state.retryCount = 0;
-            }, reconnect.healthyAfter);
+            }, this.reconnect.healthyAfter);
           }
 
           this.changeStatus('connected');
-
-          if (!signal.aborted) {
-            run.ready.resolve();
-          }
         },
-        onMessage: raw => {
+        onDisconnected: () => {
           if (signal.aborted) {
             return;
           }
 
-          this.state.lastMessageAt = Date.now();
-
-          if (
-            record(raw) &&
-            typeof raw.cmd === 'string' &&
-            normalizeCommand(raw.cmd) === 'LIVE' &&
-            typeof raw.live_time === 'number' &&
-            Number.isSafeInteger(raw.live_time) &&
-            raw.live_time > 0
-          ) {
-            this.state.liveStartTime = raw.live_time;
+          clearTimeout(healthyTimer);
+          this.changeStatus('connecting');
+        },
+        onRoom: (roomId, liveStartTime) => {
+          if (signal.aborted) {
+            return;
           }
 
-          this.parser.parse(raw, {
-            roomId: connection.roomId,
-          });
+          this.state.resolvedRoomId = roomId;
+          this.state.liveStartTime = liveStartTime;
+        },
+        onMessage: raw => {
+          if (!signal.aborted) {
+            this.handleMessage(raw);
+          }
         },
         onHeartbeat: popularity => {
           if (signal.aborted) {
@@ -236,10 +200,34 @@ export class LiveClient {
           this.state.popularity = popularity;
           this.emitter.emit('heartbeat', { at, popularity });
         },
+        onError: error => {
+          if (!signal.aborted) {
+            this.report(error);
+          }
+        },
       });
     } finally {
       clearTimeout(healthyTimer);
     }
+  }
+
+  private handleMessage(raw: unknown): void {
+    this.state.lastMessageAt = Date.now();
+
+    if (
+      record(raw) &&
+      typeof raw.cmd === 'string' &&
+      normalizeCommand(raw.cmd) === 'LIVE' &&
+      typeof raw.live_time === 'number' &&
+      Number.isSafeInteger(raw.live_time) &&
+      raw.live_time > 0
+    ) {
+      this.state.liveStartTime = raw.live_time;
+    }
+
+    this.parser.parse(raw, {
+      roomId: this.state.resolvedRoomId ?? this.state.roomId,
+    });
   }
 
   private async retry(run: ClientRun, error: unknown): Promise<boolean> {
@@ -258,7 +246,7 @@ export class LiveClient {
       return false;
     }
 
-    const reconnect = this.options.reconnect;
+    const reconnect = this.reconnect;
 
     if (!reconnect || this.state.retryCount >= reconnect.maxRetries) {
       this.run = null;

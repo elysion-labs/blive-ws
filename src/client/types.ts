@@ -126,6 +126,18 @@ export interface SessionCallbacks {
   onHeartbeat: (popularity: number) => void;
 }
 
+export interface LiveSessionOptions extends Omit<SessionCallbacks, 'onAuthenticated'> {
+  signal: AbortSignal;
+  retryCount: number;
+  onReady: () => void;
+  onConnected: () => void;
+  onDisconnected: () => void;
+  onRoom: (roomId: number, liveStartTime: number | null) => void;
+  onError: (error: Error) => void;
+}
+
+export type LiveSession = (options: LiveSessionOptions) => Promise<void>;
+
 export interface SessionOptions extends SessionCallbacks {
   connection: ConnectionInfo;
   cookie: string;
@@ -157,7 +169,6 @@ export interface ResolvedOptions extends Omit<
   | 'fetch'
   | 'createWebSocket'
 > {
-  reconnect: false | Required<ReconnectOptions>;
   connectTimeout: number;
   heartbeatInterval: number;
   heartbeatTimeout: number;

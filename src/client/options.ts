@@ -85,21 +85,25 @@ function defaultCookieParser(): CookieParser {
 }
 
 export function resolveOptions(options: ClientOptions): ResolvedOptions {
-  if (!Number.isSafeInteger(options.roomId) || options.roomId <= 0) {
-    throw new TypeError('roomId must be a positive safe integer');
-  }
-
+  const { reconnect: _reconnect, ...settings } = options;
   const createWebSocket = options.createWebSocket ?? defaultWebSocketFactory();
   const parseCookie = options.parseCookie ?? (options.cookie ? defaultCookieParser() : undefined);
 
   return {
-    ...options,
+    ...settings,
     parseCookie,
     connectTimeout: milliseconds(options.connectTimeout, 15_000, 'connectTimeout'),
     heartbeatInterval: milliseconds(options.heartbeatInterval, 30_000, 'heartbeatInterval'),
     heartbeatTimeout: milliseconds(options.heartbeatTimeout, 10_000, 'heartbeatTimeout'),
     fetch: options.fetch ?? ((url, init) => fetch(url, init)),
     createWebSocket,
-    reconnect: options.reconnect === false ? false : reconnectOptions(options.reconnect ?? {}),
   };
+}
+
+export function resolveReconnect(options: ClientOptions): false | Required<ReconnectOptions> {
+  if (!Number.isSafeInteger(options.roomId) || options.roomId <= 0) {
+    throw new TypeError('roomId must be a positive safe integer');
+  }
+
+  return options.reconnect === false ? false : reconnectOptions(options.reconnect ?? {});
 }
