@@ -1,6 +1,6 @@
 # 直播客户端
 
-`@elysionjs/blive-ws` 使用 WebSocket、fetch 和内置 zlib/Brotli 解压，独立实现直播服务器发现、认证、协议数据包、心跳及重连。客户端运行于 Bun，不依赖 bilibili-live-ws、ws 或外部 protobuf 包。
+`@elysionjs/blive-ws` 使用 WebSocket、fetch 和内置 zlib/Brotli 解压，独立实现直播服务器发现、认证、协议数据包、心跳及重连。Bun 1.4.4+ 默认使用原生 WebSocket 和 `Bun.CookieMap`。Node.js 24+ 自动加载可选依赖 `ws` 和 `cookie`。
 
 ```ts
 import { createClient } from '@elysionjs/blive-ws';
@@ -32,6 +32,31 @@ console.log(client.getStatus());
 // 宿主服务继续运行，关闭时调用 await client.stop()。
 ```
 
+## Node.js 接入
+
+正常安装时，包管理器会一并安装可选依赖。
+
+```sh
+npm install @elysionjs/blive-ws
+```
+
+将以下代码保存为 `live.mjs`，用 `node --env-file=.env live.mjs` 启动。
+
+```js
+import { createClient } from '@elysionjs/blive-ws';
+
+const client = createClient({
+  roomId: 25034104,
+  cookie: () => process.env.BILI_COKKIES,
+});
+
+client.on('event', event => console.log(event));
+client.on('error', error => console.error(error.message));
+await client.start();
+```
+
+匿名连接省略 `cookie` 即可，客户端只加载 `ws`。如果安装时跳过了可选依赖，可以补装对应的包，或通过 `createWebSocket` 和 `parseCookie` 提供自己的实现。自定义 WebSocket 工厂应转发握手请求头、支持 `binaryType = 'arraybuffer'`，并提供 `terminate()`。Bun 和 Node 的默认传输都用 `terminate()` 强制断开。
+
 ## 生命周期
 
 | 方法                                | 行为                                                                                             |
@@ -52,7 +77,7 @@ console.log(client.getStatus());
 
 `connectTimeout` 默认 15 秒，限制连接准备与 socket 认证各阶段。Cookie provider 即使不响应取消，也不会让 stop 无限等待。短房间号会通过 API 解析为真实房间号，事件使用该真实号。
 
-`fetch` 和 `createWebSocket` 可替换网络实现，适合自定义网络和本地集成测试；默认使用运行时内置实现。
+`fetch` 默认使用运行时内置实现。`createWebSocket` 可以替换 WebSocket 传输。`parseCookie` 接收 Cookie 请求头并返回键值字典，客户端从中读取 `buvid3`。
 
 ## 心跳与重连
 

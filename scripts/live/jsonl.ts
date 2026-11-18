@@ -1,4 +1,3 @@
-// @env bun
 import { closeSync, fsyncSync, mkdirSync, openSync, writeSync } from 'node:fs';
 import { join } from 'node:path';
 

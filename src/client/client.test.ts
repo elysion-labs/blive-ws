@@ -319,8 +319,13 @@ describe('Bun live client', () => {
     const host = server({ closeFirst: true });
     let reads = 0;
 
+    const parseCookie = mock((cookie: string) => ({
+      buvid3: new Bun.CookieMap(cookie).get('buvid3') ?? undefined,
+    }));
+
     const { value, cookies } = client(host.url, {
-      cookie: () => `SESSDATA=secret-${++reads}; buvid3=device`,
+      cookie: () => `SESSDATA=secret-${++reads}; buvid3=device-${reads}`,
+      parseCookie,
       reconnect: { initialDelay: 5, maxDelay: 5, healthyAfter: 1000, jitter: 0, maxRetries: 2 },
     });
 
@@ -329,7 +334,9 @@ describe('Bun live client', () => {
     await value.start();
     await until(() => host.connections() === 2 && events.mock.calls.length === 2);
     expect(reads).toBe(2);
-    expect(cookies).toContain('SESSDATA=secret-2; buvid3=device');
+    expect(cookies).toContain('SESSDATA=secret-2; buvid3=device-2');
+    expect(parseCookie).toHaveBeenCalledTimes(2);
+    expect(host.auths.map(auth => auth.buvid)).toEqual(['device-1', 'device-2']);
     expect(value.getStatus()).toMatchObject({ status: 'connected', retryCount: 1 });
     await value.stop();
     await Bun.sleep(20);
@@ -347,6 +354,53 @@ describe('Bun live client', () => {
     expect(value.start()).rejects.toThrow('authentication timed out');
     expect(host.connections()).toBe(2);
     expect(value.getStatus()).toMatchObject({ status: 'failed', retryCount: 1 });
+  });
+
+  it('identifies the API request that failed without exposing transport credentials', async () => {
+    const fallback = httpApi([]);
+    await using value = createClient({
+      roomId: 1,
+      reconnect: false,
+      fetch: async (input, init) => {
+        if (new URL(input).pathname === '/room/v1/Room/room_init') {
+          throw new Error('SESSDATA=secret-leak');
+        }
+
+        return fallback(input, init);
+      },
+    });
+
+    const failure = await value.start().catch((error: unknown) => error);
+    expect(failure).toMatchObject({ message: 'Bilibili /room/v1/Room/room_init request failed' });
+    expect(JSON.stringify(value.getStatus())).not.toContain('secret-leak');
+  });
+
+  it('times out a pending API request even when the fetch hook ignores cancellation', async () => {
+    await using value = createClient({
+      roomId: 1,
+      reconnect: false,
+      connectTimeout: 50,
+      fetch: () => new Promise(() => {}),
+    });
+
+    const failure = await value.start().catch((error: unknown) => error);
+    expect(failure).toMatchObject({
+      message: 'Bilibili /x/web-interface/nav request timed out or was cancelled',
+    });
+  });
+
+  it('identifies the API response that contains invalid JSON', async () => {
+    await using value = createClient({
+      roomId: 1,
+      reconnect: false,
+      fetch: async () => new Response('SESSDATA=secret-leak'),
+    });
+
+    const failure = await value.start().catch((error: unknown) => error);
+    expect(failure).toMatchObject({
+      message: 'Bilibili /x/web-interface/nav response was not valid JSON',
+    });
+    expect(JSON.stringify(value.getStatus())).not.toContain('secret-leak');
   });
 
   it('detects missing protocol heartbeat replies even while the socket remains open', async () => {

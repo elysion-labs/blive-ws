@@ -1,4 +1,3 @@
-// @env bun
 import { createParser } from '../parser/instance';
 import { normalizeCommand } from '../parser/parse';
 import type { EventParser } from '../parser/types';
@@ -161,15 +160,13 @@ export class LiveClient {
     const preparation = AbortSignal.any([signal, AbortSignal.timeout(this.options.connectTimeout)]);
     const cookie = await this.cookie(preparation);
 
-    const connection = await abortable(
-      resolveConnection(
-        this.options.roomId,
-        cookie,
-        preparation,
-        this.options.fetch,
-        this.state.retryCount,
-      ),
+    const connection = await resolveConnection(
+      this.options.roomId,
+      cookie,
       preparation,
+      this.options.fetch,
+      this.state.retryCount,
+      this.options.parseCookie,
     );
 
     signal.throwIfAborted();

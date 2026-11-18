@@ -1,4 +1,3 @@
-// @env bun
 import { deferred } from '../../src/client/async';
 import { createClient } from '../../src/client/client';
 import type { CaptureOptions, CaptureResult } from './types';

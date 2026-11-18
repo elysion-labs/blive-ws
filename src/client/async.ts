@@ -10,6 +10,8 @@ export function deferred<T>(): Deferred<T> {
 
 export function abortable<T>(promise: Promise<T>, signal: AbortSignal): Promise<T> {
   if (signal.aborted) {
+    void promise.catch(() => undefined);
+
     return Promise.reject(signal.reason);
   }
 

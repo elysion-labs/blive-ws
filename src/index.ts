@@ -10,6 +10,9 @@ export type {
   ClientState,
   ClientEventMap,
   CookieSource,
+  CookieParser,
+  ClientWebSocket,
+  WebSocketFactory,
   ReconnectOptions,
   Heartbeat,
 } from './client/types';

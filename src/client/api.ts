@@ -1,9 +1,16 @@
-// @env bun
 import { createHash } from 'node:crypto';
 
+import { abortable } from './async';
 import { requestHeaders, wbiPermutation } from './constants';
 import { ConnectionError } from './errors';
-import type { ApiResponse, ConnectionInfo, DanmuInfo, NavInfo, Fetcher } from './types';
+import type {
+  ApiResponse,
+  ConnectionInfo,
+  CookieParser,
+  DanmuInfo,
+  NavInfo,
+  Fetcher,
+} from './types';
 
 async function request<T>(
   url: string | URL,
@@ -14,19 +21,59 @@ async function request<T>(
 ): Promise<T> {
   const path = new URL(url).pathname;
 
-  const response = await fetcher(url, {
-    headers: { ...requestHeaders, ...(cookie ? { Cookie: cookie } : {}) },
-    signal: AbortSignal.any([signal, AbortSignal.timeout(15_000)]),
-  });
+  const requestSignal = AbortSignal.any([signal, AbortSignal.timeout(15_000)]);
+  let response: Response;
+
+  try {
+    requestSignal.throwIfAborted();
+    response = await abortable(
+      fetcher(url, {
+        headers: { ...requestHeaders, ...(cookie ? { Cookie: cookie } : {}) },
+        signal: requestSignal,
+      }),
+      requestSignal,
+    );
+  } catch {
+    const failure = requestSignal.aborted ? 'timed out or was cancelled' : 'failed';
+    throw new ConnectionError(`Bilibili ${path} request ${failure}`);
+  }
 
   if (!response.ok) {
     throw new ConnectionError(`Bilibili ${path} returned HTTP ${response.status}`);
   }
 
-  const body = (await response.json()) as ApiResponse<T>;
+  return readResponse<T>(response, path, requestSignal, allowLoggedOut);
+}
+
+async function readResponse<T>(
+  response: Response,
+  path: string,
+  requestSignal: AbortSignal,
+  allowLoggedOut: boolean,
+): Promise<T> {
+  let body: ApiResponse<T>;
+
+  try {
+    requestSignal.throwIfAborted();
+    body = (await abortable(response.json(), requestSignal)) as ApiResponse<T>;
+  } catch {
+    const failure = requestSignal.aborted
+      ? 'read timed out or was cancelled'
+      : 'was not valid JSON';
+
+    throw new ConnectionError(`Bilibili ${path} response ${failure}`);
+  }
+
+  if (!body || typeof body.code !== 'number') {
+    throw new ConnectionError(`Bilibili ${path} returned an invalid response`);
+  }
 
   if (body.code !== 0 && !(allowLoggedOut && body.code === -101)) {
     throw new ConnectionError(`Bilibili ${path} returned code ${body.code}`);
+  }
+
+  if (!body.data || typeof body.data !== 'object') {
+    throw new ConnectionError(`Bilibili ${path} returned invalid data`);
   }
 
   return body.data;
@@ -72,12 +119,21 @@ export async function discoverRooms(
     .slice(0, 3);
 }
 
+function readBuvid(cookie: string, parseCookie?: CookieParser): string | undefined {
+  try {
+    return cookie ? parseCookie?.(cookie).buvid3 : undefined;
+  } catch {
+    throw new ConnectionError('Cookie parser failed');
+  }
+}
+
 export async function resolveConnection(
   roomId: number,
   cookie: string,
   signal: AbortSignal,
   fetcher: Fetcher = (url, init) => fetch(url, init),
   serverIndex = 0,
+  parseCookie?: CookieParser,
 ): Promise<ConnectionInfo> {
   const nav = await request<NavInfo>(
     'https://api.bilibili.com/x/web-interface/nav',
@@ -113,8 +169,7 @@ export async function resolveConnection(
     throw new ConnectionError('Bilibili returned no WebSocket hosts');
   }
 
-  const cookies = new Bun.CookieMap(cookie);
-  let buvid = cookies.get('buvid3');
+  let buvid = readBuvid(cookie, parseCookie);
 
   if (!buvid) {
     const device = await request<{ b_3: string }>(

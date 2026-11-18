@@ -1,4 +1,3 @@
-// @env bun
 import { resolve } from 'node:path';
 
 import type { CaptureCliOptions } from './types';

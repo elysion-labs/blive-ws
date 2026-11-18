@@ -1,4 +1,3 @@
-// @env bun
 import { discoverRooms } from '../src/client/api';
 import { captureRoom } from './live/connection';
 import { JsonlWriter } from './live/jsonl';

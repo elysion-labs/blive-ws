@@ -39,7 +39,7 @@ vp run build
 bun examples/parse.ts
 ```
 
-配置 `.env` 中的 `BILI_COKKIES` 后，运行真实监听示例：
+在 Bun 中配置 `.env` 的 `BILI_COKKIES` 后，可运行真实监听示例：
 
 ```sh
 bun run example:live
@@ -65,7 +65,7 @@ console.log(client.getStatus());
 // 在宿主服务中保持运行，关闭时 await client.stop()。
 ```
 
-完整生命周期和配置见 [客户端文档](./docs/client.md)。
+Node.js 24+ 自动使用可选依赖 `ws` 和 `cookie`，参见 [Node.js 接入](./docs/client.md#nodejs-接入)。完整生命周期和配置见 [客户端文档](./docs/client.md)。
 
 包名为 `@elysionjs/blive-ws`，提供无状态解析和带订阅的解析器：
 
@@ -93,7 +93,7 @@ console.log(parser.getStatus());
 
 只需要转换一条消息时，调用 `parseEvent(raw, { roomId })`。返回值以 `status` 区分 `parsed`、`unknown` 和 `mismatch`，始终保留 `raw`。
 
-`result.events` 包含全部事件，`result.event` 保留首个事件的便捷访问。`SEND_GIFT_V2` 可能一次产生多个 `gift`，客户端和解析器订阅会逐件通知。`/parser` 入口不加载 Bun 网络客户端。
+`result.events` 包含全部事件，`result.event` 保留首个事件的便捷访问。`SEND_GIFT_V2` 可能一次产生多个 `gift`，客户端和解析器订阅会逐件通知。`/parser` 入口独立于网络客户端。
 
 <a id="events"></a>
 
@@ -202,7 +202,7 @@ bun test
 ```text
 src/
   parser/       # 类型、分派、事件处理、protobuf 与结构观察
-  client/       # Bun WebSocket、API、认证、心跳、重连与状态
+  client/       # WebSocket、API、认证、心跳、重连与状态
   testing/      # 独立 raw JSON、合成用例与预期 JSON
   index.ts      # 公共导出
 scripts/        # 复用正式客户端的采集脚本、离线快照更新

@@ -1,4 +1,3 @@
-// @env bun
 import { brotliDecompressSync, inflateSync } from 'node:zlib';
 
 import { maxCompressionDepth, maxDecodedBytes } from './constants';

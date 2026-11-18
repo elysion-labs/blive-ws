@@ -6,6 +6,25 @@ export type CookieSource =
   | string
   | ((signal: AbortSignal) => string | null | undefined | Promise<string | null | undefined>);
 
+export type CookieParser = (cookie: string) => Readonly<Record<string, string | undefined>>;
+
+type SocketEventHandler<T> = { handle(event: T): void }['handle'];
+
+export interface ClientWebSocket {
+  binaryType: string;
+  onopen: SocketEventHandler<unknown> | null;
+  onmessage: SocketEventHandler<{ data: unknown }> | null;
+  onerror: SocketEventHandler<unknown> | null;
+  onclose: SocketEventHandler<{ code: number }> | null;
+  send(data: Buffer): void;
+  terminate(): void;
+}
+
+export type WebSocketFactory = (
+  url: string,
+  options: { headers: Record<string, string> },
+) => ClientWebSocket;
+
 export type ClientState =
   | 'idle'
   | 'connecting'
@@ -29,13 +48,16 @@ export interface ReconnectOptions {
 export interface ClientOptions extends ParserOptions {
   roomId: number;
   cookie?: CookieSource;
+  /** Defaults to Bun.CookieMap on Bun and the optional cookie package on Node.js. */
+  parseCookie?: CookieParser;
   reconnect?: false | ReconnectOptions;
   connectTimeout?: number;
   heartbeatInterval?: number;
   heartbeatTimeout?: number;
-  /** Optional transport hooks, useful for custom networking and local integration tests. */
+  /** Optional HTTP transport hook. Defaults to the runtime's fetch. */
   fetch?: Fetcher;
-  createWebSocket?: (url: string, options: { headers: Record<string, string> }) => WebSocket;
+  /** Defaults to Bun's native WebSocket or the optional ws package on Node.js. */
+  createWebSocket?: WebSocketFactory;
 }
 
 export interface ClientStatus {
@@ -121,7 +143,7 @@ export interface SessionOptions extends SessionCallbacks {
   connectTimeout: number;
   heartbeatInterval: number;
   heartbeatTimeout: number;
-  createWebSocket: NonNullable<ClientOptions['createWebSocket']>;
+  createWebSocket: WebSocketFactory;
 }
 
 export interface Deferred<T> {
@@ -150,5 +172,5 @@ export interface ResolvedOptions extends Omit<
   heartbeatInterval: number;
   heartbeatTimeout: number;
   fetch: Fetcher;
-  createWebSocket: NonNullable<ClientOptions['createWebSocket']>;
+  createWebSocket: WebSocketFactory;
 }

@@ -1,4 +1,3 @@
-// @env bun
 /* eslint-disable no-console -- This executable example displays live events and connection state. */
 import { createClient, discoverRooms } from '@elysionjs/blive-ws';
 

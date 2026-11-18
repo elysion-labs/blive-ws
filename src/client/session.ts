@@ -1,4 +1,3 @@
-// @env bun
 import { parseRawJson } from '../parser/json';
 import { requestHeaders } from './constants';
 import { ConnectionError } from './errors';
@@ -37,7 +36,8 @@ export function openSession(options: SessionOptions): Promise<void> {
       options.signal.removeEventListener('abort', abort);
       socket.onopen = null;
       socket.onmessage = null;
-      socket.onerror = null;
+      // ws 在握手期间被 terminate 时仍可能发出 error。
+      socket.onerror = () => undefined;
       socket.onclose = null;
       socket.terminate();
 

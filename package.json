@@ -57,11 +57,16 @@
     "vite": "npm:@voidzero-dev/vite-plus-core@1.6.0",
     "vite-plus": "1.6.0"
   },
+  "optionalDependencies": {
+    "cookie": "^2.0.2",
+    "ws": "^8.23.0"
+  },
   "overrides": {
     "vite": "npm:@voidzero-dev/vite-plus-core@1.6.0"
   },
   "engines": {
-    "node": ">=22.18.0"
+    "bun": ">=1.4.4",
+    "node": ">=24.0.0"
   },
   "packageManager": "bun@1.4.4"
 }
