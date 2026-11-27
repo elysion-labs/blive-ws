@@ -68,13 +68,15 @@ describe('parseEvent', () => {
       user: {
         base: { face: 'avatar.png' },
         medal: { name: '粉丝牌', level: 20, ruid: 9, is_light: 1, guard_level: 3 },
+        wealth: { level: 12 },
       },
     };
+    input.info[16] = [9];
     expect(parseEvent(input)).toMatchObject({
       status: 'parsed',
       event: {
         type: 'message',
-        user: { id: 42, name: '观众', avatar: 'avatar.png', guardLevel: 3 },
+        user: { id: 42, name: '观众', avatar: 'avatar.png', guardLevel: 3, wealthLevel: 12 },
         color: 16777215,
         mode: 1,
         fontSize: 25,
@@ -100,7 +102,33 @@ describe('parseEvent', () => {
     input.info[3] = [10, '旧粉丝牌', '', 123, 0, 0, 0, 0, 0, 0, 3, 1, 9];
     expect(parseEvent(input)).toMatchObject({
       status: 'parsed',
-      event: { sourceId: null, user: { avatar: null }, medal: { name: '旧粉丝牌', roomId: 123 } },
+      event: {
+        sourceId: null,
+        user: { avatar: null, wealthLevel: null },
+        medal: { name: '旧粉丝牌', roomId: 123 },
+      },
+    });
+  });
+
+  it('falls back from empty JSON wealth to dm_v2', () => {
+    const input = { ...structuredClone(fixtures.DANMU_MSG), dm_v2: '' };
+    (input.info[0] as unknown[])[15] = { user: { uinfo: { wealth: { level: 0 } } } };
+    input.info[16] = [0];
+    // EventDm.user (20) → EventDmUser.wealth (15) → EventWealth.level (1)
+    input.dm_v2 = Buffer.from([162, 1, 4, 122, 2, 8, 27]).toString('base64');
+    expect(parseEvent(input)).toMatchObject({
+      status: 'parsed',
+      event: { user: { wealthLevel: 27 } },
+    });
+    expect(parseEvent({ ...input, dm_v2: '!!' })).toMatchObject({
+      status: 'parsed',
+      event: { user: { wealthLevel: null } },
+    });
+
+    (input.info[0] as unknown[])[15] = { user: { uinfo: { wealth: { level: 19 } } } };
+    expect(parseEvent(input)).toMatchObject({
+      status: 'parsed',
+      event: { user: { wealthLevel: 19 } },
     });
   });
 
@@ -109,17 +137,23 @@ describe('parseEvent', () => {
       ...fixtures.SEND_GIFT,
       data: {
         ...fixtures.SEND_GIFT.data,
+        wealth_level: 11,
         sender_uinfo: {
           uid: 99,
           base: { name: '现代用户', face: 'modern.png' },
           guard: { level: 2 },
+          wealth: { level: 15 },
         },
       },
     };
 
     expect(parseEvent(input)).toMatchObject({
       status: 'parsed',
-      event: { user: { id: 99, name: '现代用户', guardLevel: 2 }, price: 2, quantity: 2 },
+      event: {
+        user: { id: 99, name: '现代用户', guardLevel: 2, wealthLevel: 15 },
+        price: 2,
+        quantity: 2,
+      },
     });
     expect(parseEvent({ ...input, data: { ...input.data, coin_type: 'silver' } })).toMatchObject({
       status: 'parsed',
@@ -127,12 +161,26 @@ describe('parseEvent', () => {
     });
     expect(parseEvent(fixtures.SEND_GIFT)).toMatchObject({
       status: 'parsed',
-      event: { user: { id: 42 } },
+      event: { user: { id: 42, wealthLevel: null } },
+    });
+    input.data.sender_uinfo.wealth.level = 0;
+    expect(parseEvent(input)).toMatchObject({
+      status: 'parsed',
+      event: { user: { wealthLevel: 11 } },
     });
   });
 
   it('retains transaction IDs and converts guard prices once', () => {
-    expect(parseEvent(fixtures.USER_TOAST_MSG_V2)).toMatchObject({
+    const input = structuredClone(fixtures.USER_TOAST_MSG_V2);
+    expect(
+      parseEvent({
+        ...input,
+        data: {
+          ...input.data,
+          sender_uinfo: { ...input.data.sender_uinfo, wealth: { level: 21 } },
+        },
+      }),
+    ).toMatchObject({
       status: 'parsed',
       event: {
         sourceId: '2412152205251792198695335',
@@ -142,7 +190,16 @@ describe('parseEvent', () => {
         startedAt: 1_700_000_000_000,
         endedAt: 1_702_592_000_000,
         timestamp: 1_700_000_000_123,
-        user: { guardLevel: 3 },
+        user: { guardLevel: 3, wealthLevel: 21 },
+      },
+    });
+    expect(parseEvent(fixtures.USER_TOAST_MSG, { roomId: 123 })).toMatchObject({
+      status: 'parsed',
+      event: {
+        command: 'USER_TOAST_MSG',
+        key: '1700000000:123:船员:198000',
+        price: 198,
+        user: { id: 42, name: '船员', guardLevel: 3, wealthLevel: 10 },
       },
     });
   });
@@ -184,13 +241,17 @@ describe('parseEvent', () => {
           uid: 42,
           uinfo: {
             base: { name: '现代用户' },
+            wealth: { level: 6 },
             medal: { name: '粉丝牌', level: 10, ruid: 9, is_light: true, guard_level: 3 },
           },
         },
       }),
     ).toMatchObject({
       status: 'parsed',
-      event: { user: { name: '现代用户' }, medal: { name: '粉丝牌', lighted: true } },
+      event: {
+        user: { name: '现代用户', wealthLevel: 6 },
+        medal: { name: '粉丝牌', lighted: true },
+      },
     });
   });
 
@@ -207,11 +268,16 @@ describe('parseEvent', () => {
     expect(
       parseEvent({
         cmd: 'SUPER_CHAT_MESSAGE',
-        data: { ...data, start_time: 1_700_000_001, uinfo: { base: { name: '现代用户' } } },
+        data: {
+          ...data,
+          start_time: 1_700_000_001,
+          user_info: { ..._userInfo, wealth_level: 16 },
+          uinfo: { base: { name: '现代用户' }, wealth: { level: 0 } },
+        },
       }),
     ).toMatchObject({
       status: 'parsed',
-      event: { timestamp: 1_700_000_001_000, user: { name: '现代用户' } },
+      event: { timestamp: 1_700_000_001_000, user: { name: '现代用户', wealthLevel: 16 } },
     });
   });
 
@@ -222,11 +288,53 @@ describe('parseEvent', () => {
     });
     expect(parseEvent({ cmd: 'ENTRY_EFFECT', data: { uid: 42 } })).toMatchObject({
       status: 'parsed',
-      event: { timestamp: null, sourceId: null, user: { name: null } },
+      event: { timestamp: null, sourceId: null, user: { name: null, wealthLevel: null } },
+    });
+    expect(
+      parseEvent({ cmd: 'ENTRY_EFFECT', data: { uid: 42, wealthy_info: { level: 17 } } }),
+    ).toMatchObject({ status: 'parsed', event: { user: { wealthLevel: 17 } } });
+    expect(
+      parseEvent({ cmd: 'ENTRY_EFFECT', data: { uid: 42, uinfo: { wealth: { level: -1 } } } }),
+    ).toMatchObject({
+      status: 'parsed',
+      event: { user: { wealthLevel: null } },
     });
     expect(parseEvent({ cmd: 'LIVE' })).toMatchObject({
       status: 'parsed',
       event: { timestamp: null, startedAt: null, sourceId: null },
+    });
+  });
+
+  it('preserves interaction types and reads JSON wealth beside fans_medal', () => {
+    const input = {
+      ...fixtures.INTERACT_WORD,
+      data: {
+        ...fixtures.INTERACT_WORD.data,
+        msg_type: 2,
+        uinfo: { wealth: null },
+        fans_medal: { medal_level: 99 },
+        wealth_level: 13,
+      },
+    };
+
+    expect(parseEvent(input)).toMatchObject({
+      status: 'parsed',
+      event: {
+        type: 'interaction',
+        interactionType: 2,
+        roomId: 123,
+        timestamp: 1_700_000_000_000,
+        user: { wealthLevel: 13 },
+      },
+    });
+    expect(parseEvent(fixtures.INTERACT_WORD_V2)).toMatchObject({
+      status: 'parsed',
+      event: {
+        type: 'interaction',
+        interactionType: 1,
+        roomId: 26088559,
+        user: { wealthLevel: 5 },
+      },
     });
   });
 

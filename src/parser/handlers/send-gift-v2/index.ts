@@ -1,6 +1,6 @@
 import type { GiftEvent, Medal, User } from '../../events';
 import { decodeBase64, ProtoMessage } from '../../protobuf/reader';
-import { base } from '../../shared/fields';
+import { base, protoWealthLevel, userWealthLevel } from '../../shared/fields';
 import { giftKey } from '../../shared/gift-key';
 import { toMilliseconds } from '../../time';
 import type { ParseContext } from '../../types';
@@ -77,19 +77,27 @@ function itemEvent(
   };
 }
 
-/** Field numbers verified against real messages and the protobuf schema. */
-export function parseGiftV2(raw: Fields, context: ParseContext): GiftEvent[] {
-  const message = new ProtoMessage(decodeBase64(raw.object('data').string('pb')));
+function giftSender(message: ProtoMessage, data: Fields): User {
   const modern = message.message(15);
   const profile = modern?.message(2);
 
-  const user: User = {
+  return {
     id: modern?.has(1) ? modern.number(1) : message.number(1),
     name: profile?.string(1) ?? (message.string(2) || null),
     avatar: profile?.string(2) ?? (message.string(3) || null),
     guardLevel: level(message.number(5)),
+    wealthLevel:
+      protoWealthLevel(modern, 4) ??
+      protoWealthLevel(message, 13) ??
+      userWealthLevel(data.at('sender_uinfo'), data.at('wealth_level')),
   };
+}
 
+/** Field numbers verified against real messages and the protobuf schema. */
+export function parseGiftV2(raw: Fields, context: ParseContext): GiftEvent[] {
+  const data = raw.object('data');
+  const message = new ProtoMessage(decodeBase64(data.string('pb')));
+  const user = giftSender(message, data);
   const items = message.messages(10);
 
   if (items.length === 0) {

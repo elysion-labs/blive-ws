@@ -1,5 +1,12 @@
 # @elysionjs/blive-ws
 
+## 0.2.0
+
+### Minor Changes
+
+- 事件的 `user` 新增 `wealthLevel`，提供 B 站直播荣耀等级。仅返回正整数，缺失或为零时返回 `null`。
+- 新增 `INTERACT_WORD` 和 `INTERACT_WORD_V2` 的观众交互解析，以及旧版 `USER_TOAST_MSG` 的大航海解析。
+
 ## 0.1.0
 
 ### Minor Changes

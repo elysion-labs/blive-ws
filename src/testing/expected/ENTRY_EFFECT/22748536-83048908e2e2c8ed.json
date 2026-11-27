@@ -13,7 +13,8 @@
       "id": 20977941,
       "name": "白岚凌霜",
       "avatar": "https://i0.hdslb.com/bfs/face/af239f7145ebe7fa0cdfe52b0742bd0916e86b08.jpg",
-      "guardLevel": 3
+      "guardLevel": 3,
+      "wealthLevel": 9
     },
     "message": "<%白岚凌霜%> 来了",
     "duration": 0,
@@ -33,7 +34,8 @@
         "id": 20977941,
         "name": "白岚凌霜",
         "avatar": "https://i0.hdslb.com/bfs/face/af239f7145ebe7fa0cdfe52b0742bd0916e86b08.jpg",
-        "guardLevel": 3
+        "guardLevel": 3,
+        "wealthLevel": 9
       },
       "message": "<%白岚凌霜%> 来了",
       "duration": 0,

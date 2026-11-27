@@ -13,7 +13,8 @@
       "id": 15140428,
       "name": "冰织的妖精桑",
       "avatar": "http://i1.hdslb.com/bfs/face/5f6f2dd4b880ae1dfa077b0f76b19e09b0c447cd.jpg",
-      "guardLevel": 0
+      "guardLevel": 0,
+      "wealthLevel": 19
     },
     "medal": {
       "anchorId": 13046,
@@ -44,7 +45,8 @@
         "id": 15140428,
         "name": "冰织的妖精桑",
         "avatar": "http://i1.hdslb.com/bfs/face/5f6f2dd4b880ae1dfa077b0f76b19e09b0c447cd.jpg",
-        "guardLevel": 0
+        "guardLevel": 0,
+        "wealthLevel": 19
       },
       "medal": {
         "anchorId": 13046,

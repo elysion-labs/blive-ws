@@ -13,7 +13,8 @@
       "id": 209942088,
       "name": "xkba9084",
       "avatar": "https://i0.hdslb.com/bfs/face/22eed132763986c0ea26a15d5bef24304bb633a2.jpg",
-      "guardLevel": 0
+      "guardLevel": 0,
+      "wealthLevel": 2
     },
     "medal": null,
     "giftId": 33988,
@@ -37,7 +38,8 @@
         "id": 209942088,
         "name": "xkba9084",
         "avatar": "https://i0.hdslb.com/bfs/face/22eed132763986c0ea26a15d5bef24304bb633a2.jpg",
-        "guardLevel": 0
+        "guardLevel": 0,
+        "wealthLevel": 2
       },
       "medal": null,
       "giftId": 33988,

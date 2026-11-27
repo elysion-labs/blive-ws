@@ -13,7 +13,8 @@
       "id": 24265696,
       "name": "_陌花_",
       "avatar": "https://i1.hdslb.com/bfs/face/56061c2fa5d2614bf9c7ae2c3fd6acf83a65fc5b.jpg",
-      "guardLevel": 0
+      "guardLevel": 0,
+      "wealthLevel": 17
     },
     "content": "早上看完夺冠下的",
     "color": 16777215,
@@ -47,7 +48,8 @@
         "id": 24265696,
         "name": "_陌花_",
         "avatar": "https://i1.hdslb.com/bfs/face/56061c2fa5d2614bf9c7ae2c3fd6acf83a65fc5b.jpg",
-        "guardLevel": 0
+        "guardLevel": 0,
+        "wealthLevel": 17
       },
       "content": "早上看完夺冠下的",
       "color": 16777215,

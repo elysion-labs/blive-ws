@@ -1,5 +1,6 @@
 import type { Emoticon, Medal, MessageEvent } from '../../events';
-import { base, guardLevel, medal } from '../../shared/fields';
+import { decodeBase64, ProtoMessage } from '../../protobuf/reader';
+import { base, guardLevel, medal, protoWealthLevel, userWealthLevel } from '../../shared/fields';
 import { toMilliseconds } from '../../time';
 import type { ParseContext } from '../../types';
 import { Fields, InvalidField, record } from '../../validation';
@@ -62,6 +63,35 @@ function messageMedal(info: Fields, modern: Fields | null): Medal | null {
   };
 }
 
+function protobufWealthLevel(encoded: unknown): number | null {
+  if (typeof encoded !== 'string' || encoded === '') {
+    return null;
+  }
+
+  try {
+    const message = new ProtoMessage(decodeBase64(encoded));
+
+    return protoWealthLevel(message.message(20), 15);
+  } catch (error) {
+    // dm_v2 是补充数据，解码失败时仍保留已通过校验的 JSON 弹幕。
+    if (error instanceof InvalidField) {
+      return null;
+    }
+
+    throw error;
+  }
+}
+
+function messageWealthLevel(raw: Fields, info: Fields, modernUser: Fields | null): number | null {
+  const legacy = info.at(16);
+
+  return (
+    userWealthLevel(modernUser?.value) ??
+    userWealthLevel(modernUser?.at('uinfo'), Array.isArray(legacy) ? legacy[0] : null) ??
+    protobufWealthLevel(raw.at('dm_v2'))
+  );
+}
+
 export function parseMessage(raw: Fields, context: ParseContext): MessageEvent {
   const info = raw.array('info');
   const style = info.array(0);
@@ -86,6 +116,7 @@ export function parseMessage(raw: Fields, context: ParseContext): MessageEvent {
       name,
       avatar: profile?.optionalString('face') ?? null,
       guardLevel: guardLevel(info, 7),
+      wealthLevel: messageWealthLevel(raw, info, modernUser),
     },
     content,
     color: style.integer(3),

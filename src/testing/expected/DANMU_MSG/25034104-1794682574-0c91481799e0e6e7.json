@@ -13,7 +13,8 @@
       "id": 1790248319,
       "name": "无相御虚",
       "avatar": "https://i0.hdslb.com/bfs/face/member/noface.jpg",
-      "guardLevel": 0
+      "guardLevel": 0,
+      "wealthLevel": null
     },
     "content": "太好了",
     "color": 16777215,
@@ -40,7 +41,8 @@
         "id": 1790248319,
         "name": "无相御虚",
         "avatar": "https://i0.hdslb.com/bfs/face/member/noface.jpg",
-        "guardLevel": 0
+        "guardLevel": 0,
+        "wealthLevel": null
       },
       "content": "太好了",
       "color": 16777215,

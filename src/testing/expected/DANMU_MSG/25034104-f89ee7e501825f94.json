@@ -13,7 +13,8 @@
       "id": 407275888,
       "name": "haze1Nutt",
       "avatar": "https://i1.hdslb.com/bfs/face/d569ed68e7700418d65f22a6206ba158a4954878.jpg",
-      "guardLevel": 0
+      "guardLevel": 0,
+      "wealthLevel": 24
     },
     "content": "无语",
     "color": 16777215,
@@ -51,7 +52,8 @@
         "id": 407275888,
         "name": "haze1Nutt",
         "avatar": "https://i1.hdslb.com/bfs/face/d569ed68e7700418d65f22a6206ba158a4954878.jpg",
-        "guardLevel": 0
+        "guardLevel": 0,
+        "wealthLevel": 24
       },
       "content": "无语",
       "color": 16777215,

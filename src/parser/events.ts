@@ -11,6 +11,8 @@ export interface User {
   name: string | null;
   avatar: string | null;
   guardLevel: GuardLevel | null;
+  /** B 站直播荣耀等级。仅保留正整数，缺失、零或无效值为 null。 */
+  wealthLevel: number | null;
 }
 
 export interface Medal {
@@ -67,7 +69,7 @@ export interface GiftEvent extends EventBase<'gift', 'SEND_GIFT' | 'SEND_GIFT_V2
   medal: Medal | null;
 }
 
-export interface GuardEvent extends EventBase<'guard', 'USER_TOAST_MSG_V2'> {
+export interface GuardEvent extends EventBase<'guard', 'USER_TOAST_MSG' | 'USER_TOAST_MSG_V2'> {
   user: User;
   guardLevel: GuardLevel;
   guardName: string;
@@ -129,6 +131,15 @@ export interface EntryEvent extends EventBase<'entry', 'ENTRY_EFFECT'> {
   medal: Medal | null;
 }
 
+export interface InteractionEvent extends EventBase<
+  'interaction',
+  'INTERACT_WORD' | 'INTERACT_WORD_V2'
+> {
+  user: User;
+  /** 原始 msg_type，1 为进场，2 为关注，3 为分享。 */
+  interactionType: number;
+}
+
 export type BiliEvent =
   | MessageEvent
   | GiftEvent
@@ -141,4 +152,5 @@ export type BiliEvent =
   | LiveWarningEvent
   | LikeEvent
   | LikesUpdateEvent
-  | EntryEvent;
+  | EntryEvent
+  | InteractionEvent;

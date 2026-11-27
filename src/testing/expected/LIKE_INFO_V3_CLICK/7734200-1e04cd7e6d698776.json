@@ -13,7 +13,8 @@
       "id": 480274547,
       "name": "T莱特",
       "avatar": "https://i2.hdslb.com/bfs/face/cb961d7314a6a31faab68d39ca5e5524d0e18b3c.jpg",
-      "guardLevel": null
+      "guardLevel": null,
+      "wealthLevel": null
     },
     "message": "为主播点赞了",
     "medal": null
@@ -31,7 +32,8 @@
         "id": 480274547,
         "name": "T莱特",
         "avatar": "https://i2.hdslb.com/bfs/face/cb961d7314a6a31faab68d39ca5e5524d0e18b3c.jpg",
-        "guardLevel": null
+        "guardLevel": null,
+        "wealthLevel": null
       },
       "message": "为主播点赞了",
       "medal": null

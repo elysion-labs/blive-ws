@@ -139,25 +139,28 @@ const parser = createParser({
 
 除下表外，`SEND_GIFT_V2` 解码 `data.pb` 中的 protobuf，输出同样的 `gift` 类型。一条广播的所有礼物分别进入 `result.events`，订阅也逐件通知；`result.event` 仅为第一条的兼容访问。
 
-| 命令                        | `event.type`      | 主要内容                                   |
-| --------------------------- | ----------------- | ------------------------------------------ |
-| `DANMU_MSG`                 | `message`         | 用户、正文、样式、粉丝牌、表情、回复       |
-| `SEND_GIFT`                 | `gift`            | 用户、礼物、数量、金币或银币、总金额       |
-| `USER_TOAST_MSG_V2`         | `guard`           | 大航海类型、支付流水、数量、单位、起止时间 |
-| `SUPER_CHAT_MESSAGE`        | `superChat`       | 醒目留言 ID、正文、翻译、价格、展示时长    |
-| `SUPER_CHAT_MESSAGE_DELETE` | `superChatDelete` | 被删除的醒目留言 ID 列表                   |
-| `LIVE`                      | `liveStart`       | 开播时间、特殊类型                         |
-| `PREPARING`                 | `liveEnd`         | 下播                                       |
-| `CUT_OFF`                   | `liveCutoff`      | 切断原因                                   |
-| `WARNING`                   | `liveWarning`     | 警告内容                                   |
-| `LIKE_INFO_V3_CLICK`        | `like`            | 点赞用户、提示文字、粉丝牌                 |
-| `LIKE_INFO_V3_UPDATE`       | `likesUpdate`     | 点赞总数                                   |
-| `ENTRY_EFFECT`              | `entry`           | 入场用户、文案、展示时长、权限类型         |
+| 命令                                   | `event.type`      | 主要内容                                        |
+| -------------------------------------- | ----------------- | ----------------------------------------------- |
+| `DANMU_MSG`                            | `message`         | 用户、正文、样式、粉丝牌、表情、回复            |
+| `SEND_GIFT`                            | `gift`            | 用户、礼物、数量、金币或银币、总金额            |
+| `USER_TOAST_MSG` / `USER_TOAST_MSG_V2` | `guard`           | 大航海类型、支付流水、数量、单位、起止时间      |
+| `SUPER_CHAT_MESSAGE`                   | `superChat`       | 醒目留言 ID、正文、翻译、价格、展示时长         |
+| `SUPER_CHAT_MESSAGE_DELETE`            | `superChatDelete` | 被删除的醒目留言 ID 列表                        |
+| `LIVE`                                 | `liveStart`       | 开播时间、特殊类型                              |
+| `PREPARING`                            | `liveEnd`         | 下播                                            |
+| `CUT_OFF`                              | `liveCutoff`      | 切断原因                                        |
+| `WARNING`                              | `liveWarning`     | 警告内容                                        |
+| `LIKE_INFO_V3_CLICK`                   | `like`            | 点赞用户、提示文字、粉丝牌                      |
+| `LIKE_INFO_V3_UPDATE`                  | `likesUpdate`     | 点赞总数                                        |
+| `ENTRY_EFFECT`                         | `entry`           | 入场用户、文案、展示时长、权限类型              |
+| `INTERACT_WORD` / `INTERACT_WORD_V2`   | `interaction`     | 观众交互，`interactionType` 保留原始 `msg_type` |
 
 此列表不是 B 站全部命令。包括 `GUARD_BUY` 在内的其余命令当前通过 `unknownCommand` 暴露。
 
 ### 数据约定
 
+- `user.wealthLevel` 为正整数荣耀等级，缺失、为零或无效时为 `null`。
+- `interactionType` 的 1、2、3 分别表示进场、关注和分享。`INTERACT_WORD_V2` 优先读取 `data.pb`。房间号可回退到交互消息内的房间字段。
 - 礼物 V1 / V2 的 key 使用 `上游秒时间:真实房间号:combo尾段:giftId:累计原始金额`。累计金额缺失时取 total_coin；缺少时间或 combo 身份时不生成 key。
 - protobuf 读取器校验字段类型、长度、UTF-8 和整数精度，限制输入大小。未使用的 protobuf 字段按协议跳过；外层结构观察不会把 pb 字符串自动展开成内部字段基线。
 

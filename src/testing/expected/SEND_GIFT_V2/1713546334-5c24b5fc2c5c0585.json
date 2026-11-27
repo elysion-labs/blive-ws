@@ -13,7 +13,8 @@
       "id": 178398894,
       "name": "不太会读书",
       "avatar": "https://i0.hdslb.com/bfs/face/bb5faf3cda93ae5f9c859639f2876071d4eee98c.jpg",
-      "guardLevel": 3
+      "guardLevel": 3,
+      "wealthLevel": 35
     },
     "medal": {
       "anchorId": 2091418780,
@@ -44,7 +45,8 @@
         "id": 178398894,
         "name": "不太会读书",
         "avatar": "https://i0.hdslb.com/bfs/face/bb5faf3cda93ae5f9c859639f2876071d4eee98c.jpg",
-        "guardLevel": 3
+        "guardLevel": 3,
+        "wealthLevel": 35
       },
       "medal": {
         "anchorId": 2091418780,

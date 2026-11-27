@@ -13,7 +13,8 @@
       "id": 11945752,
       "name": "我永远喜欢过膝",
       "avatar": "https://i1.hdslb.com/bfs/face/618df6775be10b870da9930abf1a0e3545fd062f.jpg",
-      "guardLevel": 3
+      "guardLevel": 3,
+      "wealthLevel": 23
     },
     "message": "<%我永远喜欢过…%> 来了",
     "duration": 0,
@@ -40,7 +41,8 @@
         "id": 11945752,
         "name": "我永远喜欢过膝",
         "avatar": "https://i1.hdslb.com/bfs/face/618df6775be10b870da9930abf1a0e3545fd062f.jpg",
-        "guardLevel": 3
+        "guardLevel": 3,
+        "wealthLevel": 23
       },
       "message": "<%我永远喜欢过…%> 来了",
       "duration": 0,

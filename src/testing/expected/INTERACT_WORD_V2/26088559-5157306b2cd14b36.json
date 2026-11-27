@@ -1,4 +1,40 @@
 {
-  "status": "unknown",
-  "command": "INTERACT_WORD_V2"
+  "status": "parsed",
+  "command": "INTERACT_WORD_V2",
+  "event": {
+    "key": null,
+    "type": "interaction",
+    "command": "INTERACT_WORD_V2",
+    "cmd": "INTERACT_WORD_V2",
+    "roomId": 26088559,
+    "timestamp": 1794675310000,
+    "sourceId": null,
+    "user": {
+      "id": 22650121,
+      "name": "落筱儿",
+      "avatar": "http://i1.hdslb.com/bfs/face/747fd83ffc290667a49ec92abdcdee8a2f4dde4f.jpg",
+      "guardLevel": 0,
+      "wealthLevel": 5
+    },
+    "interactionType": 1
+  },
+  "events": [
+    {
+      "key": null,
+      "type": "interaction",
+      "command": "INTERACT_WORD_V2",
+      "cmd": "INTERACT_WORD_V2",
+      "roomId": 26088559,
+      "timestamp": 1794675310000,
+      "sourceId": null,
+      "user": {
+        "id": 22650121,
+        "name": "落筱儿",
+        "avatar": "http://i1.hdslb.com/bfs/face/747fd83ffc290667a49ec92abdcdee8a2f4dde4f.jpg",
+        "guardLevel": 0,
+        "wealthLevel": 5
+      },
+      "interactionType": 1
+    }
+  ]
 }

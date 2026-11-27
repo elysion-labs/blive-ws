@@ -101,18 +101,21 @@ console.log(parser.getStatus());
 
 ## 支持的事件
 
-| 命令                        | 事件类型                     | 内容                           |
-| --------------------------- | ---------------------------- | ------------------------------ |
-| `DANMU_MSG`                 | `message`                    | 用户、弹幕、粉丝牌、表情与回复 |
-| `SEND_GIFT`                 | `gift`                       | 礼物、数量、金币或银币与总金额 |
-| `USER_TOAST_MSG_V2`         | `guard`                      | 大航海类型、支付流水与起止时间 |
-| `SUPER_CHAT_MESSAGE`        | `superChat`                  | 醒目留言、翻译、价格与展示时长 |
-| `SUPER_CHAT_MESSAGE_DELETE` | `superChatDelete`            | 删除的醒目留言 ID              |
-| `LIVE` / `PREPARING`        | `liveStart` / `liveEnd`      | 开播与下播                     |
-| `CUT_OFF` / `WARNING`       | `liveCutoff` / `liveWarning` | 切断原因与警告                 |
-| `LIKE_INFO_V3_CLICK`        | `like`                       | 点赞用户、文案与粉丝牌         |
-| `LIKE_INFO_V3_UPDATE`       | `likesUpdate`                | 点赞总数                       |
-| `ENTRY_EFFECT`              | `entry`                      | 入场用户、文案与效果           |
+| 命令                                   | 事件类型                     | 内容                           |
+| -------------------------------------- | ---------------------------- | ------------------------------ |
+| `DANMU_MSG`                            | `message`                    | 用户、弹幕、粉丝牌、表情与回复 |
+| `SEND_GIFT` / `SEND_GIFT_V2`           | `gift`                       | 礼物、数量、金币或银币与总金额 |
+| `USER_TOAST_MSG` / `USER_TOAST_MSG_V2` | `guard`                      | 大航海类型、支付流水与起止时间 |
+| `SUPER_CHAT_MESSAGE`                   | `superChat`                  | 醒目留言、翻译、价格与展示时长 |
+| `SUPER_CHAT_MESSAGE_DELETE`            | `superChatDelete`            | 删除的醒目留言 ID              |
+| `LIVE` / `PREPARING`                   | `liveStart` / `liveEnd`      | 开播与下播                     |
+| `CUT_OFF` / `WARNING`                  | `liveCutoff` / `liveWarning` | 切断原因与警告                 |
+| `LIKE_INFO_V3_CLICK`                   | `like`                       | 点赞用户、文案与粉丝牌         |
+| `LIKE_INFO_V3_UPDATE`                  | `likesUpdate`                | 点赞总数                       |
+| `ENTRY_EFFECT`                         | `entry`                      | 入场用户、文案与效果           |
+| `INTERACT_WORD` / `INTERACT_WORD_V2`   | `interaction`                | 进场、关注、分享等观众交互     |
+
+带用户信息的事件提供 `user.wealthLevel`（B 站直播荣耀等级，旧称财富等级）。仅保留正整数，缺失、为零或无效时返回 `null`。在 `event` 回调中，`event.type === 'interaction'` 且 `event.interactionType === 1` 表示进场。
 
 没有上游时间或 ID 时，对应字段为 `null`，不会用本机时间或随机 ID 填补。金额统一说明币种和单位，具体约定见 [API 文档](./docs/api.md#数据约定)。
 

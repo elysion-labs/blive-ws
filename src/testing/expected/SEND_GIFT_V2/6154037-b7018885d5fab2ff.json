@@ -13,7 +13,8 @@
       "id": 1859004382,
       "name": "木小英OvO",
       "avatar": "https://i1.hdslb.com/bfs/face/0da59c563113893c1d9d9ef6c3e6538332582549.jpg",
-      "guardLevel": 0
+      "guardLevel": 0,
+      "wealthLevel": 22
     },
     "medal": {
       "anchorId": 194484313,
@@ -44,7 +45,8 @@
         "id": 1859004382,
         "name": "木小英OvO",
         "avatar": "https://i1.hdslb.com/bfs/face/0da59c563113893c1d9d9ef6c3e6538332582549.jpg",
-        "guardLevel": 0
+        "guardLevel": 0,
+        "wealthLevel": 22
       },
       "medal": {
         "anchorId": 194484313,
