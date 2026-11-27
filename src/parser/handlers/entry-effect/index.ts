@@ -1,7 +1,8 @@
 import type { EntryEvent } from '../../events';
-import { base, user, userMedal } from '../../shared/fields';
+import { base, user, userMedal, wealthLevel } from '../../shared/fields';
 import type { ParseContext } from '../../types';
 import type { Fields } from '../../validation';
+import { record } from '../../validation';
 import { entryKey } from './key';
 import { entryTimestamp } from './time';
 
@@ -12,6 +13,7 @@ export function parseEntry(raw: Fields, context: ParseContext): EntryEvent {
   const sender = user(data);
   const message = data.optionalString('copy_writing_v2');
   const privilegeType = data.optionalNumber('privilege_type');
+  const legacyWealth = data.at('wealthy_info');
 
   return {
     ...eventBase,
@@ -19,6 +21,8 @@ export function parseEntry(raw: Fields, context: ParseContext): EntryEvent {
     timestamp: timestamp ?? eventBase.timestamp,
     user: {
       ...sender,
+      wealthLevel:
+        sender.wealthLevel ?? wealthLevel(record(legacyWealth) ? legacyWealth.level : null),
       avatar:
         data.optionalString('face') ??
         data.optionalObject('uinfo')?.optionalObject('base')?.optionalString('face') ??

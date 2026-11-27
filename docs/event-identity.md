@@ -8,21 +8,23 @@ R 表示真实房间号；U 表示 UID，UID 为 0 时使用用户名；T 表示
 
 ## 生成规则
 
-| 命令                        | key 规则                                                        | 说明                                                                                                                                                |
-| --------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DANMU_MSG`                 | `上游毫秒时间:R:U:H(正文)`                                      | 同一用户同毫秒的不同正文分别记录；头像等资料不影响 key。                                                                                            |
-| `SEND_GIFT`                 | `上游秒时间:R:combo尾段:giftId:累计原始金额`                    | 累计金额优先 `combo_total_coin`，缺失时取 `total_coin`；显式 0 不触发回退。combo 尾段取 `batch_combo_id` 最后一个冒号之后的原始字符串，包括小数点。 |
-| `SEND_GIFT_V2`              | 与 `SEND_GIFT` 相同                                             | 遍历全部礼物；protobuf 条目的 10、12、1、14（缺失时 7）号字段分别提供上述身份字段。                                                                 |
-| `USER_TOAST_MSG_V2`         | `guard_info.start_time:R:sender_uinfo.base.name:pay_info.price` | 使用原始秒时间和原始整数金额；不依赖 `send_time`，不用 `payflow_id` 替代。                                                                          |
-| `SUPER_CHAT_MESSAGE`        | `上游秒时间:R:SC ID`                                            | 同一 SC 的审核、公开及翻译版本共用 key。                                                                                                            |
-| `SUPER_CHAT_MESSAGE_DELETE` | `R:superChatDelete:排序去重后以逗号拼接的SC ID`                 | 无需时间；ID 先统一为字符串，再按字典序排序；空列表或缺房间时为 `null`。                                                                            |
-| `ENTRY_EFFECT`              | `原始纳秒trigger_time:R:U:entryEffect`                          | `R:entryEffect:U:H([文案,特权类型])`；缺房间或用户身份时为 `null`。                                                                                 |
-| `LIKE_INFO_V3_CLICK`        | `R:like:U:H(点赞文案)`                                          | 相同规则；缺文案按空字符串处理，缺房间或用户身份时为 `null`。                                                                                       |
-| `LIKE_INFO_V3_UPDATE`       | `R:likesUpdate:计数`                                            | 相同房间和计数共用 key。                                                                                                                            |
-| `LIVE`                      | `本条live_time秒时间:R:liveStart`                               | 本条消息没有有效开播时间时为 `R:liveStart`，不使用接口或历史消息补齐。                                                                              |
-| `PREPARING`                 | `R:liveEnd`                                                     | 无需时间。                                                                                                                                          |
-| `WARNING`                   | `T:R:liveWarning:H(原因)`                                       | `R:liveWarning:H(原因)`。                                                                                                                           |
-| `CUT_OFF`                   | `T:R:liveCutoff:H(原因)`                                        | `R:liveCutoff:H(原因)`。                                                                                                                            |
+| 命令                                 | key 规则                                                        | 说明                                                                                                                                                |
+| ------------------------------------ | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DANMU_MSG`                          | `上游毫秒时间:R:U:H(正文)`                                      | 同一用户同毫秒的不同正文分别记录；头像等资料不影响 key。                                                                                            |
+| `SEND_GIFT`                          | `上游秒时间:R:combo尾段:giftId:累计原始金额`                    | 累计金额优先 `combo_total_coin`，缺失时取 `total_coin`；显式 0 不触发回退。combo 尾段取 `batch_combo_id` 最后一个冒号之后的原始字符串，包括小数点。 |
+| `SEND_GIFT_V2`                       | 与 `SEND_GIFT` 相同                                             | 遍历全部礼物；protobuf 条目的 10、12、1、14（缺失时 7）号字段分别提供上述身份字段。                                                                 |
+| `USER_TOAST_MSG_V2`                  | `guard_info.start_time:R:sender_uinfo.base.name:pay_info.price` | 使用原始秒时间和原始整数金额；不依赖 `send_time`，不用 `payflow_id` 替代。                                                                          |
+| `USER_TOAST_MSG`                     | `data.start_time:R:用户名:data.price`                           | 旧版大航海字段，使用同样的原始秒时间和金额。                                                                                                        |
+| `SUPER_CHAT_MESSAGE`                 | `上游秒时间:R:SC ID`                                            | 同一 SC 的审核、公开及翻译版本共用 key。                                                                                                            |
+| `SUPER_CHAT_MESSAGE_DELETE`          | `R:superChatDelete:排序去重后以逗号拼接的SC ID`                 | 无需时间；ID 先统一为字符串，再按字典序排序；空列表或缺房间时为 `null`。                                                                            |
+| `ENTRY_EFFECT`                       | `原始纳秒trigger_time:R:U:entryEffect`                          | `R:entryEffect:U:H([文案,特权类型])`；缺房间或用户身份时为 `null`。                                                                                 |
+| `INTERACT_WORD` / `INTERACT_WORD_V2` | `null`                                                          | 暂无已确认的交互事件去重规则。                                                                                                                      |
+| `LIKE_INFO_V3_CLICK`                 | `R:like:U:H(点赞文案)`                                          | 相同规则；缺文案按空字符串处理，缺房间或用户身份时为 `null`。                                                                                       |
+| `LIKE_INFO_V3_UPDATE`                | `R:likesUpdate:计数`                                            | 相同房间和计数共用 key。                                                                                                                            |
+| `LIVE`                               | `本条live_time秒时间:R:liveStart`                               | 本条消息没有有效开播时间时为 `R:liveStart`，不使用接口或历史消息补齐。                                                                              |
+| `PREPARING`                          | `R:liveEnd`                                                     | 无需时间。                                                                                                                                          |
+| `WARNING`                            | `T:R:liveWarning:H(原因)`                                       | `R:liveWarning:H(原因)`。                                                                                                                           |
+| `CUT_OFF`                            | `T:R:liveCutoff:H(原因)`                                        | `R:liveCutoff:H(原因)`。                                                                                                                            |
 
 所有事件都需要真实房间号才能生成 key。摘要不包含头像、粉丝牌等资料。入场回退仅使用 `copy_writing_v2` 和 `privilege_type`，缺字段按 `null` 编码。
 

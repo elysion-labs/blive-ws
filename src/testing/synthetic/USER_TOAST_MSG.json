@@ -1,0 +1,17 @@
+{
+  "cmd": "USER_TOAST_MSG",
+  "data": {
+    "uid": 42,
+    "username": "船员",
+    "guard_level": 3,
+    "role_name": "舰长",
+    "start_time": 1700000000,
+    "end_time": 1702592000,
+    "num": 1,
+    "unit": "月",
+    "price": 198000,
+    "payflow_id": "2412152205251792198695335",
+    "toast_msg": "开通了舰长",
+    "wealth_level": 10
+  }
+}

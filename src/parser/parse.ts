@@ -3,6 +3,7 @@ import type { BiliEvent, KnownCommand } from './events';
 import { parseLiveCutoff } from './handlers/cut-off';
 import { parseMessage } from './handlers/danmu-msg';
 import { parseEntry } from './handlers/entry-effect';
+import { parseInteraction } from './handlers/interact-word';
 import { parseLike } from './handlers/like-info-v3-click';
 import { parseLikesUpdate } from './handlers/like-info-v3-update';
 import { parseLiveStart } from './handlers/live';
@@ -20,6 +21,7 @@ const parsers = {
   DANMU_MSG: parseMessage,
   SEND_GIFT: parseGift,
   SEND_GIFT_V2: parseGiftV2,
+  USER_TOAST_MSG: (raw, context) => parseGuard(raw, context, 'USER_TOAST_MSG'),
   USER_TOAST_MSG_V2: parseGuard,
   SUPER_CHAT_MESSAGE: parseSuperChat,
   SUPER_CHAT_MESSAGE_DELETE: parseSuperChatDelete,
@@ -30,6 +32,8 @@ const parsers = {
   LIKE_INFO_V3_CLICK: parseLike,
   LIKE_INFO_V3_UPDATE: parseLikesUpdate,
   ENTRY_EFFECT: parseEntry,
+  INTERACT_WORD: (raw, context) => parseInteraction(raw, context, 'INTERACT_WORD'),
+  INTERACT_WORD_V2: (raw, context) => parseInteraction(raw, context, 'INTERACT_WORD_V2'),
 } satisfies Record<KnownCommand, (raw: Fields, context: ParseContext) => BiliEvent | BiliEvent[]>;
 
 export function normalizeCommand(cmd: string): string {

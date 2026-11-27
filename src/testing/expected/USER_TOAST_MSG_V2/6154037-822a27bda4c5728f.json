@@ -13,7 +13,8 @@
       "id": 27375310,
       "name": "摄影师四宫辉夜",
       "avatar": "",
-      "guardLevel": 2
+      "guardLevel": 2,
+      "wealthLevel": null
     },
     "guardLevel": 2,
     "guardName": "提督",
@@ -37,7 +38,8 @@
         "id": 27375310,
         "name": "摄影师四宫辉夜",
         "avatar": "",
-        "guardLevel": 2
+        "guardLevel": 2,
+        "wealthLevel": null
       },
       "guardLevel": 2,
       "guardName": "提督",

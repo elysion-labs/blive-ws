@@ -13,7 +13,8 @@
       "id": 0,
       "name": "雨***",
       "avatar": "http://i0.hdslb.com/bfs/face/2448e3225f3d140525f170b064e832024049d4ec.jpg",
-      "guardLevel": 3
+      "guardLevel": 3,
+      "wealthLevel": 9
     },
     "content": "可惜",
     "color": 14893055,
@@ -47,7 +48,8 @@
         "id": 0,
         "name": "雨***",
         "avatar": "http://i0.hdslb.com/bfs/face/2448e3225f3d140525f170b064e832024049d4ec.jpg",
-        "guardLevel": 3
+        "guardLevel": 3,
+        "wealthLevel": 9
       },
       "content": "可惜",
       "color": 14893055,

@@ -13,7 +13,8 @@
       "id": 412720378,
       "name": "帽衫瓜l",
       "avatar": "https://i1.hdslb.com/bfs/face/0a392cbf633649d632dffcd57c7f267df324d370.jpg",
-      "guardLevel": 0
+      "guardLevel": 0,
+      "wealthLevel": null
     },
     "message": "为主播点赞了",
     "medal": {
@@ -38,7 +39,8 @@
         "id": 412720378,
         "name": "帽衫瓜l",
         "avatar": "https://i1.hdslb.com/bfs/face/0a392cbf633649d632dffcd57c7f267df324d370.jpg",
-        "guardLevel": 0
+        "guardLevel": 0,
+        "wealthLevel": null
       },
       "message": "为主播点赞了",
       "medal": {

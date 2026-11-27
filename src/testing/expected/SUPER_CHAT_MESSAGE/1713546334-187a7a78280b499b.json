@@ -13,7 +13,8 @@
       "id": 3546983578994744,
       "name": "KOU_KEI",
       "avatar": "https://i2.hdslb.com/bfs/face/9c63057cfd3c4724bc588a13b5c295d3f8c84852.jpg",
-      "guardLevel": 3
+      "guardLevel": 3,
+      "wealthLevel": null
     },
     "content": "亲也亲了? 绿冻的亲亲呢? 亲也亲了? 绿冻的亲亲呢? ",
     "translatedContent": "",
@@ -41,7 +42,8 @@
         "id": 3546983578994744,
         "name": "KOU_KEI",
         "avatar": "https://i2.hdslb.com/bfs/face/9c63057cfd3c4724bc588a13b5c295d3f8c84852.jpg",
-        "guardLevel": 3
+        "guardLevel": 3,
+        "wealthLevel": null
       },
       "content": "亲也亲了? 绿冻的亲亲呢? 亲也亲了? 绿冻的亲亲呢? ",
       "translatedContent": "",

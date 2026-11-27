@@ -2,6 +2,7 @@ export const commands = {
   DANMU_MSG: 'message',
   SEND_GIFT: 'gift',
   SEND_GIFT_V2: 'gift',
+  USER_TOAST_MSG: 'guard',
   USER_TOAST_MSG_V2: 'guard',
   SUPER_CHAT_MESSAGE: 'superChat',
   SUPER_CHAT_MESSAGE_DELETE: 'superChatDelete',
@@ -12,6 +13,8 @@ export const commands = {
   LIKE_INFO_V3_CLICK: 'like',
   LIKE_INFO_V3_UPDATE: 'likesUpdate',
   ENTRY_EFFECT: 'entry',
+  INTERACT_WORD: 'interaction',
+  INTERACT_WORD_V2: 'interaction',
 } as const;
 
 export const shapeLimits = {

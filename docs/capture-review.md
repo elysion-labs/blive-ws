@@ -29,7 +29,7 @@
 | `USER_TOAST_MSG_V2`   |    1 | 首次真实大航海，无顶层 send_time，使用 guard_info 与 pay_info 生成已确认的 key。 |
 | `LIVE`                |    2 | 本条有/无 live_time，验证消息时间与房间级回退。                                  |
 | `PREPARING`           |    1 | 首次真实下播，带 msg_id、send_time，key 仅依赖真实房间。                         |
-| `INTERACT_WORD_V2`    |    1 | 未知 protobuf 广播原样保留。                                                     |
+| `INTERACT_WORD_V2`    |    1 | protobuf 进场消息，校验房间、用户信息与荣耀等级。                                |
 | `LOG_IN_NOTICE`       |    1 | 匿名连接的未知 JSON 提示，也供 JSONL 写入测试复用。                              |
 
 ## 新日志中选入的 8 条

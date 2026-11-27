@@ -276,8 +276,13 @@ describe('Bun live client', () => {
 
     for (const event of events) {
       expect(event.roomId).toBe(123456);
-      expect(typeof event.key).toBe('string');
-      expect(event.key!.split(':')).toContain('123456');
+
+      if (event.type === 'interaction') {
+        expect(event.key).toBeNull();
+      } else {
+        expect(typeof event.key).toBe('string');
+        expect(event.key!.split(':')).toContain('123456');
+      }
     }
   });
 

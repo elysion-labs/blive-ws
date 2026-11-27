@@ -1,22 +1,37 @@
-import type { GuardEvent } from '../../events';
+import type { GuardEvent, User } from '../../events';
 import { base, guardLevel, user } from '../../shared/fields';
 import { toMilliseconds } from '../../time';
 import type { ParseContext } from '../../types';
 import { InvalidField } from '../../validation';
 import type { Fields } from '../../validation';
 
-export function parseGuard(raw: Fields, context: ParseContext): GuardEvent {
+function guardSender(data: Fields, isV2: boolean): User {
+  if (isV2) {
+    return user(data, 'sender_uinfo');
+  }
+
+  const sender = user(data, data.has('sender_uinfo') ? 'sender_uinfo' : 'uinfo');
+
+  return { ...sender, name: sender.name ?? data.optionalString('username') };
+}
+
+export function parseGuard(
+  raw: Fields,
+  context: ParseContext,
+  command: GuardEvent['command'] = 'USER_TOAST_MSG_V2',
+): GuardEvent {
   const data = raw.object('data');
-  const guard = data.object('guard_info');
-  const payment = data.object('pay_info');
+  const isV2 = command === 'USER_TOAST_MSG_V2';
+  const guard = isV2 ? data.object('guard_info') : data;
+  const payment = isV2 ? data.object('pay_info') : data;
   const level = guardLevel(guard, 'guard_level');
 
   if (level === null || level === 0) {
     throw new InvalidField(guard.childPath('guard_level'), '1 | 2 | 3', level);
   }
 
-  const eventBase = base('guard', 'USER_TOAST_MSG_V2', raw, context);
-  const sender = user(data, 'sender_uinfo');
+  const eventBase = base('guard', command, raw, context);
+  const sender = guardSender(data, isV2);
   const rawPrice = payment.integer('price');
   const startSeconds = guard.integer('start_time');
 

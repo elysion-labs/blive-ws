@@ -17,8 +17,21 @@ describe('SEND_GIFT_V2', () => {
         totalCoin: 1000,
         price: 1,
         medal: null,
+        user: { wealthLevel: 2 },
         key: '1794690968:7734200:1794690965.6636:33988:2000',
       },
+    });
+  });
+
+  it('shares the sender wealth level across a protobuf gift batch', () => {
+    const original = Buffer.from(batch.data.pb, 'base64');
+    // EventSendGift.wealth (13) 和 sender_uinfo (15) 的等级同时存在。
+    const fields = Buffer.from([106, 2, 8, 11, 122, 6, 8, 42, 34, 2, 8, 18]);
+    const pb = Buffer.concat([original, fields]).toString('base64');
+    const result = parseEvent({ ...batch, data: { pb } });
+    expect(result).toMatchObject({
+      status: 'parsed',
+      events: [{ user: { wealthLevel: 18 } }, { user: { wealthLevel: 18 } }],
     });
   });
 

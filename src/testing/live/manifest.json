@@ -82,7 +82,7 @@
       "roomId": 26088559,
       "capturedAt": "2026-11-14T16:55:12.321Z",
       "sha256": "5157306b2cd14b36075da119c892b5301ba06a48ee3bc456ac0ac3c8d09e7e21",
-      "purpose": "未知 protobuf 广播原样保留，不尝试将不支持的命令解析为已知事件。"
+      "purpose": "protobuf 进场广播，验证交互类型、房间号与 uinfo.wealth.level。"
     },
     {
       "file": "LIKE_INFO_V3_CLICK/1713546334-3a7bd5c90695402c.json",

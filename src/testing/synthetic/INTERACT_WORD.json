@@ -1,0 +1,13 @@
+{
+  "cmd": "INTERACT_WORD",
+  "data": {
+    "uid": 42,
+    "uname": "观众",
+    "msg_type": 1,
+    "roomid": 123,
+    "timestamp": 1700000000,
+    "uinfo": {
+      "wealth": { "level": 8 }
+    }
+  }
+}

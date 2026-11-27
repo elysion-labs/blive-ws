@@ -1,24 +1,44 @@
 import type { EventBase, EventType, GuardLevel, KnownCommand, Medal, User } from '../events';
+import type { ProtoMessage } from '../protobuf/reader';
 import { toMilliseconds } from '../time';
 import type { ParseContext } from '../types';
 import type { Fields } from '../validation';
-import { InvalidField } from '../validation';
+import { InvalidField, record } from '../validation';
 
 export function guardLevel(fields: Fields, key: string | number): GuardLevel | null {
-  const value = fields.optionalNumber(key);
+  return checkedGuardLevel(fields.optionalNumber(key), fields.childPath(key));
+}
 
+export function checkedGuardLevel(value: number | null, path: string): GuardLevel | null {
   if (value === null || value === 0 || value === 1 || value === 2 || value === 3) {
     return value;
   }
 
-  throw new InvalidField(fields.childPath(key), '0 | 1 | 2 | 3', value);
+  throw new InvalidField(path, '0 | 1 | 2 | 3', value);
+}
+
+export function wealthLevel(value: unknown): number | null {
+  return typeof value === 'number' && Number.isSafeInteger(value) && value > 0 ? value : null;
+}
+
+export function userWealthLevel(profile: unknown, legacyLevel?: unknown): number | null {
+  const wealth = record(profile) ? profile.wealth : null;
+
+  return wealthLevel(record(wealth) ? wealth.level : null) ?? wealthLevel(legacyLevel);
+}
+
+export function protoWealthLevel(
+  message: ProtoMessage | null | undefined,
+  wealthField: number,
+): number | null {
+  return wealthLevel(message?.message(wealthField)?.number(1));
 }
 
 export function platformTimestamp(raw: Fields): number | null {
   return toMilliseconds(raw.optionalNumber('send_time'), 1, raw.childPath('send_time'));
 }
 
-function wireRoomId(raw: Fields, key: string): number | null {
+export function wireRoomId(raw: Fields, key: string): number | null {
   const value = raw.optionalId(key);
 
   if (value === null) {
@@ -72,6 +92,7 @@ export function user(fields: Fields, modernKey = 'uinfo'): User {
     name: profile?.has('name') ? profile.string('name') : fields.optionalString('uname'),
     avatar: profile?.optionalString('face') ?? fields.optionalString('face'),
     guardLevel: guard ? guardLevel(guard, 'level') : guardLevel(fields, 'guard_level'),
+    wealthLevel: userWealthLevel(fields.at(modernKey), fields.at('wealth_level')),
   };
 }
 
